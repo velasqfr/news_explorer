@@ -1,8 +1,8 @@
-import React from "react";
+import "./Footer.css";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <p> @2025 Supersite, Powered by News API</p>
       <nav>
         <a>Home</a>

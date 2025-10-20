@@ -1,12 +1,7 @@
 .about {
   max-width: 1440px;
-  height: 624px;
   margin: 0 auto;
   background-color: #ffffff;
-  padding-left: 624px;
-  padding-right: 216px;
-  padding-top: 201px;
-  padding-bottom: 223px;
 }
 
 .about__title {
@@ -14,6 +9,7 @@
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
+  letter-spacing: 0px;
   margin: 0 0 24px 0;
   color: #1a1b22;
 }
@@ -21,6 +17,7 @@
 .about__content {
   display: flex;
   gap: 56px;
+  align-items: flex-start;
 }
 
 .avatar__photo {
@@ -31,14 +28,20 @@
   opacity: 1;
 }
 
+.about__section {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
 .about__text {
+  font-family: "Roboto Slab", serif;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 600px;
-}
-
-.about__section {
   font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
+  letter-spacing: 0;
+  margin: 0;
 }

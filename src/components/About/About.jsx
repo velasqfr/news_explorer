@@ -8,7 +8,6 @@ function About() {
         <img src={avatar} alt="Franklin Velasquez" className="avatar__photo" />
         <div className="about__section">
           <h1 className="about__title">About the Author</h1>
-
           <div className="about__text">
             <p>
               Greetings! My name is Franklin Velasquez, and I am currently

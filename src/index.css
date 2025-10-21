@@ -12,7 +12,6 @@ html,
 body {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 body {
@@ -59,4 +58,12 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* PREVENTS IMAGES FROM OVERFLOWING ON PHONE SCREEN */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

@@ -46,3 +46,24 @@
   letter-spacing: 0;
   margin: 0;
 }
+
+/* ============== MEDIA QUERIES ============== */
+
+/* Table and below (<= 768px) */
+
+@media (max-width: 768px) {
+  .about__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .avatar__photo {
+    width: 280px;
+    height: 280px;
+  }
+
+  .about__section {
+    max-width: 90%;
+  }
+}

@@ -12,19 +12,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 40px;
   flex-wrap: wrap;
+  padding: 0 40px;
+}
+.footer__right-group {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .footer__copyright {
   color: #1a1b22;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 16px;
 }
 
 .footer__nav {
   display: flex;
   gap: 40px;
+  flex-shrink: 0;
 }
 
 .footer__nav a {
@@ -32,7 +39,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 18px;
-  font-weight: 400px;
+  font-weight: 400;
 }
 
 .footer__nav a:hover {
@@ -41,7 +48,7 @@
 
 .footer__social-icons {
   display: flex;
-  gap: 24px;
+  gap: 48px;
 }
 
 .footer__social-icons a {
@@ -54,4 +61,7 @@
 
 .footer__social-icons a:hover {
   color: #ccc;
+}
+.footer__icon {
+  transition: opacity 0.3s ease;
 }

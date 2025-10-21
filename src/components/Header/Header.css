@@ -2,7 +2,7 @@
   width: 100%;
   padding: 20px 40px;
   box-sizing: border-box;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
 }
 
 .header__container {
@@ -20,7 +20,7 @@
   font-size: 20px;
   width: 200px;
   margin: 0;
-  color: #ffffff;
+  color: #1a1b22;
 }
 
 .header__menu {
@@ -30,7 +30,7 @@
 }
 
 .header__nav a {
-  color: #ffffff;
+  color: #1a1b22;
   text-decoration: none;
   cursor: pointer;
   font-family: "Roboto Slab", serif;
@@ -47,7 +47,7 @@
   font-size: 18px;
   border: 1px solid white;
   background: transparent;
-  color: white;
+  color: 1A1B22;
   cursor: pointer;
   display: flex;
   justify-content: center;

@@ -1,9 +1,57 @@
 .footer {
+  width: 100%;
+  background-color: #ffffff;
+  color: #1a1b22;
+  font-family: "Roboto Slab", serif;
+  box-sizing: border-box;
+}
+
+.footer__container {
   max-width: 1440px;
-  opacity: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 0 auto;
-  background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer__copyright {
+  color: #1a1b22;
+  font-weight: 400px;
+  font-size: 16px;
+}
+
+.footer__nav {
+  display: flex;
+  gap: 40px;
+}
+
+.footer__nav a {
+  color: #1a1b22;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400px;
+}
+
+.footer__nav a:hover {
+  text-decoration: underline;
+}
+
+.footer__social-icons {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__social-icons a {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer__social-icons a:hover {
+  color: #ccc;
 }

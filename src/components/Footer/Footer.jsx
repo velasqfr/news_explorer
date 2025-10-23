@@ -12,7 +12,7 @@ function Footer() {
         <div className="footer__right-group">
           <nav className="footer__nav">
             <a href="/">Home</a>
-            <a href="/tripleten">Tripleten</a>
+            <a href="https://tripleten.com/">Tripleten</a>
           </nav>
           <div className="footer__social-icons">
             <a

@@ -1,16 +1,22 @@
 import React from "react";
 import "./ModalWithForm.css";
+import closeIcon from "../../images/close.svg";
 
-function ModalWithForm({ title, onClose, onSubmit, children }) {
+function ModalWithForm({ isOpen, onClose, title, onSubmit, children }) {
+  if (!isOpen) return null; //stops the modal from showing unless explicitly "opened"
+
   return (
     <div className="modal">
       <div className="modal__overlay" onClick={onClose}></div>
-      <div className="moda__content">
+
+      <div className="modal__content">
         <button className="modal__close" onClick={onClose}>
-          x
+          <img src={closeIcon} alt="Close" className="close__button" />
         </button>
+
         <h2 className="modal__title"> {title} </h2>
-        <form className="modal__Form" onSubmit={onSubmit}>
+
+        <form className="modal__form" onSubmit={onSubmit}>
           {children}
         </form>
       </div>

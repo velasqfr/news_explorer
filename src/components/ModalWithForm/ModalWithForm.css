@@ -1,0 +1,50 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Behind content */
+}
+
+.modal__content {
+  position: relative;
+  width: 430px;
+  height: 380px;
+  padding: 36px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2; /*On top*/
+}
+
+.modal__close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 3;
+}
+
+.modal__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+
+.close__button {
+  width: 40px;
+  height: 40px;
+}

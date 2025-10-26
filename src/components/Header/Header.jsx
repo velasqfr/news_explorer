@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-function Header() {
+function Header({ onSignInClick }) {
   return (
     <header className="header">
       <div className="header__container">
@@ -10,7 +10,9 @@ function Header() {
           <nav className="header__nav">
             <a href="/">Home</a>
           </nav>
-          <button className="header__sign-in">Sign In</button>
+          <button className="header__sign-in" onClick={onSignInClick}>
+            Sign In
+          </button>
         </div>
       </div>
     </header>

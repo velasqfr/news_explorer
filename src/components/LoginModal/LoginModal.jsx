@@ -2,7 +2,7 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose }) {
+function LoginModal({ isOpen, onClose, onSignUpClick }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Loginsubmitted");
@@ -46,6 +46,7 @@ function LoginModal({ isOpen, onClose }) {
           type="button"
           className="modal__sign-up"
           placeholder="Enter password"
+          onClick={onSignUpClick}
         >
           Sign up
         </button>

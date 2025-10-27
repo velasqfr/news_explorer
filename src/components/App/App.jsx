@@ -4,14 +4,25 @@ import "./App.css";
 import Header from "../Header/Header";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const handleLoginOpen = () => setIsLoginOpen(true);
-  const handleLoginClose = () => setIsLoginOpen(false);
+  const handleRegisterOpen = () => setIsRegisterOpen(true);
+
+  const openLoginFromRegister = () => {
+    setIsRegisterOpen(false);
+    setIsLoginOpen(true);
+  };
+
+  const closeAllModals = () => {
+    setIsLoginOpen(false);
+    setIsRegisterOpen(false);
+  };
 
   return (
     <div className="app">
@@ -20,7 +31,18 @@ function App() {
         <About />
       </main>
       <Footer />
-      <LoginModal isOpen={isLoginOpen} onClose={handleLoginClose} />
+
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={closeAllModals}
+        onSignUpClick={handleRegisterOpen}
+      />
+
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={closeAllModals}
+        onSignInClick={openLoginFromRegister}
+      />
     </div>
   );
 }

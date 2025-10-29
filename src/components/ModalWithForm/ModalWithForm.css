@@ -23,6 +23,7 @@
 
 .modal__content {
   position: relative;
+  overflow: visible;
   width: 430px;
   min-height: auto;
   padding: 36px;

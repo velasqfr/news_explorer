@@ -3,6 +3,8 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
 function RegisterModal({ isOpen, onClose, onSignInClick }) {
+  if (!isOpen) return null;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Signup Submitted");
@@ -15,6 +17,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      className="register"
     >
       <label className="modal__label">
         Email

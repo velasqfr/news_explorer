@@ -1,8 +1,10 @@
 .header {
+  position: absolute;
   width: 100%;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  background-color: #ffffff;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: transparent;
 }
 
 .header__container {
@@ -20,7 +22,7 @@
   font-size: 20px;
   width: 200px;
   margin: 0;
-  color: #1a1b22;
+  color: #ffffff;
 }
 
 .header__menu {
@@ -30,7 +32,7 @@
 }
 
 .header__nav a {
-  color: #1a1b22;
+  color: #ffffff;
   text-decoration: none;
   cursor: pointer;
   font-family: "Roboto Slab", serif;
@@ -45,9 +47,9 @@
   font-family: "Roboto Slab", serif;
   font-weight: 500;
   font-size: 18px;
-  border: 1px solid #1a1b22;
+  border: 1px solid #ffffff;
   background: transparent;
-  color: #1a1b22;
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   justify-content: center;

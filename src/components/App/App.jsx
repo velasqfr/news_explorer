@@ -3,6 +3,7 @@ import "./App.css";
 
 import Header from "../Header/Header";
 import About from "../About/About";
+import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -28,8 +29,11 @@ function App() {
     <div className="app">
       <Header onSignInClick={handleLoginOpen} />
       <main className="main-content">
+        <Main />
+
         <About />
       </main>
+
       <Footer />
 
       <LoginModal

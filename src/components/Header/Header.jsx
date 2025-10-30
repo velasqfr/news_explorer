@@ -10,6 +10,7 @@ function Header({ onSignInClick }) {
           <nav className="header__nav">
             <a href="/">Home</a>
           </nav>
+
           <button className="header__sign-in" onClick={onSignInClick}>
             Sign In
           </button>

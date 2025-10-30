@@ -18,7 +18,9 @@
   color: #ffffff;
   text-align: center;
   margin: 0 0 16px 0;
+  margin-top: -80px;
 }
+
 .main__search-subtitle {
   font-family: "Roboto Slab", serif;
   font-weight: 400;
@@ -40,6 +42,15 @@
   height: 64px;
   opacity: 1;
   border-width: 1px;
+}
+
+.main__search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 608px;
 }
 
 .main__search-btn {

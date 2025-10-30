@@ -14,7 +14,7 @@ const NewsCard = ({ article }) => {
 
         <h3 className="news__card-title">{title}</h3>
 
-        <p className="news__card-desciption">{description}</p>
+        <p className="news__card-description">{description}</p>
         <p className="news__card-source">{source.name}</p>
         <a href={url} target="_blank" rel="noreferrer">
           Read more

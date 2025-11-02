@@ -55,6 +55,14 @@
   cursor: pointer;
 }
 
+.search__button:hover {
+  background-color: #347eff;
+}
+
+.search__button:active {
+  background-color: #2a65cc;
+}
+
 .search__input {
   flex: 1;
   height: 64px;

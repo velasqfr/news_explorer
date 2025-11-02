@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
 function LoginModal({ isOpen, onClose, onSignUpClick }) {
+  // Escape Key Listener
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose(); // closes modal on escape
+      }
+    };
+
+    document.addEventListener("keydown", handleEsc);
+
+    // Cleanup listener when modal closes or unmounts
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Loginsubmitted");

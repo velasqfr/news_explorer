@@ -16,7 +16,7 @@ const NewsCardList = () => {
 
   return (
     <section className="news__card-list-section">
-      <h2 className="news__card-list-title"> Search Results</h2>
+      <h2 className="news__card-list-title"> Search results</h2>
 
       <div className="news__card-list">
         {articlesToDisplay.map((article, index) => (

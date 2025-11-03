@@ -1,8 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, onSignUpClick }) {
+function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // Clear inputs whenever modal opens
+  useEffect(() => {
+    if (!isOpen) {
+      setEmail("");
+      setPassword("");
+    }
+  }, [isOpen]);
+
   // Escape Key Listener
   useEffect(() => {
     if (!isOpen) return;
@@ -21,12 +32,16 @@ function LoginModal({ isOpen, onClose, onSignUpClick }) {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Loginsubmitted");
+
+    if (email && password) {
+      console.log("Login submitted:", { email, password });
+      onLogin();
+    }
   };
+
+  if (!isOpen) return null;
 
   return (
     <ModalWithForm
@@ -42,6 +57,8 @@ function LoginModal({ isOpen, onClose, onSignUpClick }) {
           name="email"
           className="modal__input"
           placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
@@ -53,6 +70,8 @@ function LoginModal({ isOpen, onClose, onSignUpClick }) {
           name="password"
           className="modal__input"
           placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>

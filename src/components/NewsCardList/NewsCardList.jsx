@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NewsCard from "../NewsCard/NewsCard";
+import Preloader from "../Preloader/Preloader";
 import "./NewsCardList.css";
 
 import { mockArticles } from "../../utils/mockArticles";
 
 const NewsCardList = () => {
   const articlesPerPage = 3;
+  const [articles, setArticles] = useState([]);
   const [visibleArticles, setVisibleArticles] = useState(articlesPerPage);
+  const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setArticles(mockArticles);
+      setIsLoading(false);
+    }, 1000); // 1 second delay
+  }, []);
+
+  // Triggered when user clicks "Show More"
   const handleShowMore = () => {
-    setVisibleArticles((prev) => prev + articlesPerPage);
+    setIsLoading(true);
+    setTimeout(() => {
+      setVisibleArticles((prev) => prev + articlesPerPage);
+      setIsLoading(false);
+    }, 500);
   };
 
-  const articlesToDisplay = mockArticles.slice(0, visibleArticles);
+  const articlesToDisplay = articles.slice(0, visibleArticles);
+
+  // Show preloader only while searching
+  if (isLoading) return <Preloader />;
 
   return (
     <section className="news__card-list-section">
@@ -24,7 +43,7 @@ const NewsCardList = () => {
         ))}
       </div>
 
-      {visibleArticles < mockArticles.length && (
+      {visibleArticles < articles.length && (
         <div className="news__card-list-footer">
           <button className="show__more-btn" onClick={handleShowMore}>
             Show More

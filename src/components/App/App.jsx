@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Header from "../Header/Header";
@@ -8,10 +9,12 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import NewsCardList from "../NewsCardList/NewsCardList";
+import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginOpen = () => setIsLoginOpen(true);
   const handleRegisterOpen = () => setIsRegisterOpen(true);
@@ -26,29 +29,53 @@ function App() {
     setIsRegisterOpen(false);
   };
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    closeAllModals();
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
-    <div className="app">
-      <Header onSignInClick={handleLoginOpen} />
-      <main className="main-content">
-        <Main />
-        <NewsCardList />
-        <About />
-      </main>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header
+                  onSignInClick={handleLoginOpen}
+                  isLoggedIn={isLoggedIn}
+                  onLogout={handleLogout}
+                />
+                <main className="main-content">
+                  <Main />
+                  <NewsCardList />
+                  <About />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/saved-news" element={<SavedNews />} />
+        </Routes>
 
-      <Footer />
+        <LoginModal
+          isOpen={isLoginOpen}
+          onClose={closeAllModals}
+          onSignUpClick={handleRegisterOpen}
+        />
 
-      <LoginModal
-        isOpen={isLoginOpen}
-        onClose={closeAllModals}
-        onSignUpClick={handleRegisterOpen}
-      />
-
-      <RegisterModal
-        isOpen={isRegisterOpen}
-        onClose={closeAllModals}
-        onSignInClick={openLoginFromRegister}
-      />
-    </div>
+        <RegisterModal
+          isOpen={isRegisterOpen}
+          onClose={closeAllModals}
+          onSignInClick={openLoginFromRegister}
+        />
+      </div>
+    </Router>
   );
 }
 

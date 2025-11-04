@@ -15,6 +15,7 @@ function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null); // null -> no one is logged in
 
   const handleLoginOpen = () => setIsLoginOpen(true);
   const handleRegisterOpen = () => setIsRegisterOpen(true);
@@ -29,7 +30,14 @@ function App() {
     setIsRegisterOpen(false);
   };
 
-  const handleLogin = () => {
+  const handleLogin = ({ email }) => {
+    setUser({ email });
+    setIsLoggedIn(true);
+    closeAllModals();
+  };
+
+  const handleRegister = ({ email, username }) => {
+    setUser({ email, username });
     setIsLoggedIn(true);
     closeAllModals();
   };
@@ -50,6 +58,7 @@ function App() {
                   onSignInClick={handleLoginOpen}
                   isLoggedIn={isLoggedIn}
                   onLogout={handleLogout}
+                  user={user}
                 />
                 <main className="main-content">
                   <Main />
@@ -67,12 +76,14 @@ function App() {
           isOpen={isLoginOpen}
           onClose={closeAllModals}
           onSignUpClick={handleRegisterOpen}
+          onLogin={handleLogin}
         />
 
         <RegisterModal
           isOpen={isRegisterOpen}
           onClose={closeAllModals}
           onSignInClick={openLoginFromRegister}
+          onRegister={handleRegister}
         />
       </div>
     </Router>

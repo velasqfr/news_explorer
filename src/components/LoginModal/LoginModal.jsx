@@ -37,7 +37,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
 
     if (email && password) {
       console.log("Login submitted:", { email, password });
-      onLogin();
+      onLogin({ email, password });
     }
   };
 

@@ -4,22 +4,19 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 300px;
+  height: 282px;
+  background-color: #f5f6f7;
+  padding-top: 80px;
 }
 
 .circle-preloader {
   display: block;
-  width: 50px;
-  height: 50px;
-  border: 4px solid #444;
+  width: 74px;
+  height: 74px;
+  border: 1px solid #444;
   border-bottom-color: #888;
   border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
+  opacity: 1;
   animation: spin 0.75s infinite linear;
 }
 
@@ -31,10 +28,11 @@
 
 .preloader-text {
   font-family: "Roboto Slab", Arial, serif;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  letter-spacing: 0px;
   text-align: center;
-  color: red;
+  color: #6c707a;
+  margin-top: 24px;
+  margin-bottom: 80px;
 }

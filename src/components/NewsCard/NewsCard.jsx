@@ -19,7 +19,11 @@ const NewsCard = ({ article }) => {
 
       <div className="news__card-content">
         <p className="news__card-date">
-          {new Date(publishedAt).toLocaleDateString()}
+          {new Date(publishedAt).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
         </p>
 
         <h3 className="news__card-title">{title}</h3>

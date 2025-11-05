@@ -58,7 +58,9 @@ function App() {
                   onSignInClick={handleLoginOpen}
                   isLoggedIn={isLoggedIn}
                   onLogout={handleLogout}
-                  user={user}
+                  onSignOutClick={handleLogout}
+                  currentUser={user}
+                  isSavedNewsPage={false}
                 />
                 <main className="main-content">
                   <Main />
@@ -69,7 +71,24 @@ function App() {
               </>
             }
           />
-          <Route path="/saved-news" element={<SavedNews />} />
+          <Route
+            path="/saved-news"
+            element={
+              <>
+                <Header
+                  onSignInClick={handleLoginOpen}
+                  isLoggedIn={isLoggedIn}
+                  onSignOutClick={handleLogout}
+                  currentUser={user}
+                  isSavedNewsPage={true}
+                />
+                <main className="main-content">
+                  <SavedNews currentUser={user} />
+                </main>
+                <Footer />
+              </>
+            }
+          />
         </Routes>
 
         <LoginModal

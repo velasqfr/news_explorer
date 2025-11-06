@@ -51,7 +51,7 @@
   height: 3px;
   background-color: #ffffff;
   border-radius: 1px;
-  transition: width 0.3s ease;
+  bottom: -40px; /* adjust to align with border-bottom line */
 }
 
 .header__sign-in {

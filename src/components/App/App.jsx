@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Header from "../Header/Header";
+import SavedNewsHeader from "../SavedNews/SavedNewsHeader";
 import About from "../About/About";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -16,6 +17,13 @@ function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null); // null -> no one is logged in
+  const [savedArticles, setSavedArticles] = useState([
+    { id: 1, title: "Yellowstone Wonders", keyword: "Yellowstone" },
+    { id: 2, title: "Nature Photography Tips", keyword: "Nature" },
+    { id: 3, title: "AI in Daily Life", keyword: "AI" },
+    { id: 4, title: "Wildlife Conservation", keyword: "Nature" },
+    { id: 5, title: "Travel Guide 2025", keyword: "Travel" },
+  ]);
 
   const handleLoginOpen = () => setIsLoginOpen(true);
   const handleRegisterOpen = () => setIsRegisterOpen(true);
@@ -44,6 +52,10 @@ function App() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+  };
+
+  const handleDeleteArticle = (id) => {
+    setSavedArticles((prev) => prev.filter((article) => article.id !== id));
   };
 
   return (
@@ -75,15 +87,16 @@ function App() {
             path="/saved-news"
             element={
               <>
-                <Header
-                  onSignInClick={handleLoginOpen}
-                  isLoggedIn={isLoggedIn}
+                <SavedNewsHeader
                   onSignOutClick={handleLogout}
                   currentUser={user}
-                  isSavedNewsPage={true}
                 />
                 <main className="main-content">
-                  <SavedNews currentUser={user} />
+                  <SavedNews
+                    currentUser={user}
+                    savedArticles={savedArticles}
+                    onDeleteArticle={handleDeleteArticle}
+                  />
                 </main>
                 <Footer />
               </>

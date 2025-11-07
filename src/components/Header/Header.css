@@ -73,6 +73,58 @@
   letter-spacing: 0;
 }
 
+/* ============== Header - Logged In============== */
+
+.header.header__logged-in .header__menu {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* space between nav and buttons */
+}
+
+.header.header__logged-in .header__nav a {
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  padding: 4px;
+}
+
+.header.header__logged-in .header__nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff; /* underline color */
+  border-radius: 1px;
+  bottom: -24px;
+}
+
+.header.header__logged-in .header__nav a:first-child {
+  margin-right: 64px; /* space between Home and Saved Articles */
+}
+
+.header.header__logged-in .header__sign-out {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between username and logout icon */
+  width: 112px;
+  height: 48px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: 64px; /* pushes sign-out button to the right */
+}
+
 /* ============== MEDIA QUERIES ============== */
 
 /* Table and below (<= 768px) */

@@ -1,6 +1,7 @@
 import React from "react";
 import "./SavedNewsHeader.css";
 import "../Header/Header";
+import logout from "../../images/logout.svg";
 
 function SavedNewsHeader({ currentUser, onSignOutClick }) {
   return (
@@ -20,6 +21,7 @@ function SavedNewsHeader({ currentUser, onSignOutClick }) {
 
           <button className="header__sign-out" onClick={onSignOutClick}>
             {currentUser?.username || "User"}
+            <img src={logout} alt="Log out" className="signout__icon" />
           </button>
         </div>
       </div>

@@ -1,12 +1,11 @@
 import React from "react";
 import "./Main.css";
-import headerImage from "../../images/Header.svg";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Main() {
+function Main({ onSearch }) {
   return (
     <main className="hero">
-      <SearchForm />
+      <SearchForm onSearch={onSearch} />
     </main>
   );
 }

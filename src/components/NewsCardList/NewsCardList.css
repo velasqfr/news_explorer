@@ -49,3 +49,33 @@
   background-color: #e8e8e8;
   color: #ffffff;
 }
+
+.news__card-list-no-result {
+  box-sizing: border-box;
+  width: 1440px;
+  height: 374px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no__results-title {
+  font-size: 26px;
+  font-weight: 400;
+  font-weight: bold;
+  margin-top: 31px;
+  margin-bottom: 16px;
+  color: #1a1b22;
+}
+
+.no__results-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: #6c707a;
+  margin-bottom: 86px;
+}
+
+.news__card-list-no-result img {
+  margin-top: 86px;
+}

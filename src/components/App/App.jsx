@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import { mockArticles } from "../../utils/mockArticles";
 
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNews/SavedNewsHeader";
@@ -17,13 +18,11 @@ function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null); // null -> no one is logged in
-  const [savedArticles, setSavedArticles] = useState([
-    { id: 1, title: "Yellowstone Wonders", keyword: "Yellowstone" },
-    { id: 2, title: "Nature Photography Tips", keyword: "Nature" },
-    { id: 3, title: "AI in Daily Life", keyword: "AI" },
-    { id: 4, title: "Wildlife Conservation", keyword: "Nature" },
-    { id: 5, title: "Travel Guide 2025", keyword: "Travel" },
-  ]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [articles, setArticles] = useState(mockArticles);
+  const [savedArticles, setSavedArticles] = useState(mockArticles.slice(0, 3));
+  const [isLoading, setIsLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false);
 
   const handleLoginOpen = () => setIsLoginOpen(true);
   const handleRegisterOpen = () => setIsRegisterOpen(true);
@@ -44,18 +43,35 @@ function App() {
     closeAllModals();
   };
 
-  const handleRegister = ({ email, username }) => {
-    setUser({ email, username });
+  const handleRegister = ({ name, email, username }) => {
+    setUser({ name, email, username });
     setIsLoggedIn(true);
     closeAllModals();
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setUser(null);
   };
 
-  const handleDeleteArticle = (id) => {
-    setSavedArticles((prev) => prev.filter((article) => article.id !== id));
+  const handleDeleteArticle = (url) => {
+    setSavedArticles((prev) => prev.filter((article) => article.url !== url));
+  };
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    setIsLoading(true); // show preloader
+    setNoResults(false); // reset no results
+
+    setTimeout(() => {
+      // simulate API call later on
+      const filtered = mockArticles.filter((article) =>
+        article.title.toLowerCase().includes(term.toLowerCase())
+      );
+      setArticles(filtered);
+      setIsLoading(false); // hide preloader
+      if (filtered.length === 0) setNoResults(true);
+    }, 1000); // simulate is loading
   };
 
   return (
@@ -75,8 +91,12 @@ function App() {
                   isSavedNewsPage={false}
                 />
                 <main className="main-content">
-                  <Main />
-                  <NewsCardList />
+                  <Main onSearch={handleSearch} />
+                  <NewsCardList
+                    articles={articles}
+                    isLoading={isLoading}
+                    noResults={noResults}
+                  />
                   <About />
                 </main>
                 <Footer />

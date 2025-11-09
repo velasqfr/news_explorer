@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "./SavedNewsHeader.css";
 import "../Header/Header";
 import logout from "../../images/logout.svg";
@@ -11,16 +11,16 @@ function SavedNewsHeader({ currentUser, onSignOutClick }) {
 
         <div className="header__menu">
           <nav className="header__nav">
-            <a href="/" className="header__link">
+            <Link to="/" className="header__link">
               Home
-            </a>
-            <a href="/saved-news" className="header__link active">
+            </Link>
+            <Link to="/saved-news" className="header__link active">
               Saved Articles
-            </a>
+            </Link>
           </nav>
 
           <button className="header__sign-out" onClick={onSignOutClick}>
-            {currentUser?.username || "User"}
+            {currentUser?.name || currentUser?.username || "User"}
             <img src={logout} alt="Log out" className="signout__icon" />
           </button>
         </div>

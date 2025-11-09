@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import logout from "../../images/logoutw.svg";
 
@@ -16,20 +16,23 @@ function Header({
 
         <div className="header__menu">
           <nav className="header__nav">
-            <a href="/" className={!isSavedNewsPage ? "active" : ""}>
+            <Link to="/" className={!isSavedNewsPage ? "active" : ""}>
               Home
-            </a>
+            </Link>
 
             {isLoggedIn && (
-              <a href="/saved-news" className={isSavedNewsPage ? "active" : ""}>
+              <Link
+                to="/saved-news"
+                className={isSavedNewsPage ? "active" : ""}
+              >
                 Saved Articles
-              </a>
+              </Link>
             )}
           </nav>
 
           {isLoggedIn ? (
             <button className="header__sign-out" onClick={onSignOutClick}>
-              {currentUser?.name || "User"}
+              {currentUser?.name || currentUser?.username || "User"}
               <img src={logout} alt="Log out" className="signout__icon" />
             </button>
           ) : (

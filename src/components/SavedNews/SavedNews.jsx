@@ -10,7 +10,7 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
 
   // Get top 2 keywords for display, and count remaining
   const topKeywords = keywords.slice(0, 2).join(",");
-  const remainingCount = keywords.length - 2;
+  const remainingCount = keywords.length - 2; // calculates hw many keywords are left beyond the first two
 
   return (
     <section className="saved-news">
@@ -18,10 +18,10 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
         <p className="saved-news__subtitle">Saved articles</p>
         <h1 className="saved-news__title">
           {currentUser?.name || currentUser?.username || "User"}, you have{" "}
-          {articleCount} saved article {articleCount !== 1 && "s"}{" "}
+          {articleCount} saved {articleCount == 1 ? "article" : "articles"}
         </h1>
 
-        {articleCount > 0 && (
+        {articleCount > 0 && keywords.length > 0 && (
           <p className="saved-news__keywords">
             By keywords:{" "}
             <span className="saved-news__keywords-highlight">
@@ -42,26 +42,45 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
                 <img
                   src={article.urlToImage}
                   alt={article.title}
-                  className="saved-news__card-image"
+                  className="saved-news__card-img"
                 />
               )}
+
+              <button
+                className="saved-news__delete-btn"
+                onClick={() => onDeleteArticle(article.url)} // will switch to article.url once API connected
+                aria-label={`Delete ${article.title}`}
+              >
+                <img src={trash} alt="trash icon" className="trash__icon" />
+              </button>
+
+              {article.keyword && (
+                <div className="saved-news__keyword-badge">
+                  {article.keyword}
+                </div>
+              )}
+
               <div className="saved-news__card-content">
-                <h3 className="saved-news__card-title">{article.title}</h3>
-                {article.keyword && (
-                  <p className="saved-news__card-keyword">{article.keyword}</p>
+                {article.publishedAt && (
+                  <p className="saved-news__card-date">
+                    {new Date(article.publishedAt).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </p>
                 )}
+                <h3 className="saved-news__card-title">{article.title}</h3>
                 {article.description && (
                   <p className="saved-news__card-description">
                     {article.description}
                   </p>
                 )}
-                <button
-                  className="saved-news__delete-btn"
-                  onClick={() => onDeleteArticle(article.url)} // will switch to article.url once API connected
-                  aria-label={`Delete ${article.title}`}
-                >
-                  <img src={trash} alt="trash icon" className="trash__icon" />
-                </button>
+                {article.source?.name && (
+                  <p className="saved-news__card-source">
+                    {article.source.name}
+                  </p>
+                )}
               </div>
             </div>
           ))}

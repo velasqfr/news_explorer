@@ -1,0 +1,139 @@
+.saved-news {
+  padding: 62px 104px;
+  background-color: #f5f6f7;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.saved-news__info {
+  background-color: #ffffff;
+  margin-bottom: 40px;
+  padding: 40px 60px;
+}
+
+.saved-news__title {
+  font-family: "Roboto Slab", serif;
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: #1a1b22;
+  max-width: 600px;
+  line-height: 1.2;
+}
+
+.saved-news__subtitle {
+  font-family: "Roboto Slab", serif;
+  color: #1a1b2280;
+  font-size: 18px;
+  margin-bottom: 28px;
+  margin-top: 40px;
+}
+
+.saved-news__keywords {
+  font-family: "Roboto Slab", serif;
+  font-size: 18px;
+  color: #1a1b22;
+}
+
+.saved-news__keywords-highlight {
+  font-weight: 700;
+}
+
+.saved-news__keyword-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1b22;
+}
+
+.saved-news__card-content {
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.saved-news__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+  background-color: #f5f6f7;
+}
+
+.saved-news__card {
+  position: relative;
+  background: #f5f6f7;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-news__card-img {
+  width: 100%;
+  height: 272px;
+  object-fit: cover;
+}
+
+.saved-news__card-date {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #b6bcbf;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  margin-bottom: 12px;
+}
+
+.saved-news__card-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: #1a1b22;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.saved-news__card-description {
+  font-family: "Roboto Slab", serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: #1a1b22;
+}
+
+.saved-news__card-source {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #b6bcbf;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.saved-news__empty {
+  text-align: center;
+  color: #1a1b22;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.saved-news__delete-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.saved-news__delete-btn:hover .trash__icon {
+  content: url("../../images/hover_trash.svg");
+}

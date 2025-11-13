@@ -20,12 +20,9 @@ function App() {
   const [user, setUser] = useState(null); // null -> no one is logged in
   const [searchTerm, setSearchTerm] = useState("");
   const [articles, setArticles] = useState(mockArticles);
-  const [savedArticles, setSavedArticles] = useState(mockArticles.slice(0, 3));
+  const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
-
-  const handleLoginOpen = () => setIsLoginOpen(true);
-  const handleRegisterOpen = () => setIsRegisterOpen(true);
 
   const openLoginFromRegister = () => {
     setIsRegisterOpen(false);
@@ -36,6 +33,9 @@ function App() {
     setIsLoginOpen(false);
     setIsRegisterOpen(false);
   };
+
+  const handleLoginOpen = () => setIsLoginOpen(true);
+  const handleRegisterOpen = () => setIsRegisterOpen(true);
 
   const handleLogin = ({ email }) => {
     setUser({ email });
@@ -52,6 +52,18 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUser(null);
+  };
+
+  const handleSaveArticle = (article) => {
+    setSavedArticles((prev) => {
+      const alreadySaved = prev.find((a) => a.url === article.url);
+      if (alreadySaved) {
+        // remove if already saved
+        return prev.filter((a) => a.url !== article.url);
+      } else {
+        return [...prev, article];
+      }
+    });
   };
 
   const handleDeleteArticle = (url) => {
@@ -96,6 +108,9 @@ function App() {
                     articles={articles}
                     isLoading={isLoading}
                     noResults={noResults}
+                    onSaveArticle={handleSaveArticle}
+                    savedArticles={savedArticles}
+                    isLoggedIn={isLoggedIn}
                   />
                   <About />
                 </main>

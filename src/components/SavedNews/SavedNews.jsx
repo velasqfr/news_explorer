@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SavedNews.css";
 import trash from "../../images/trash.svg";
 
 function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
+  const [showRemovedMsg, setShowRemovedMsg] = useState(null);
+
   const articleCount = savedArticles.length;
 
   // Get unique keywords from all saved articles
@@ -12,6 +14,18 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
   const topKeywords = keywords.slice(0, 2).join(",");
   const remainingCount = keywords.length - 2; // calculates hw many keywords are left beyond the first two
 
+  const handleDelete = (url) => {
+    if (showRemovedMsg === url) {
+      onDeleteArticle(url);
+      setShowRemovedMsg(null);
+    } else {
+      setShowRemovedMsg(url);
+
+      setTimeout(() => {
+        setShowRemovedMsg((prev) => (prev === url ? null : prev));
+      }, 2000);
+    }
+  };
   return (
     <section className="saved-news">
       <div className="saved-news__info">
@@ -48,11 +62,15 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
 
               <button
                 className="saved-news__delete-btn"
-                onClick={() => onDeleteArticle(article.url)} // will switch to article.url once API connected
+                onClick={() => handleDelete(article.url)} // will switch to article.url once API connected
                 aria-label={`Delete ${article.title}`}
               >
                 <img src={trash} alt="trash icon" className="trash__icon" />
               </button>
+
+              {showRemovedMsg === article.url && (
+                <p className="saved-news__card-msg">Remove from saved</p>
+              )}
 
               {article.keyword && (
                 <div className="saved-news__keyword-badge">

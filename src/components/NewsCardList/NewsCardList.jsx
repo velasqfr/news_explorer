@@ -6,7 +6,14 @@ import nothing from "../../images/no_results.svg";
 
 import { mockArticles } from "../../utils/mockArticles";
 
-const NewsCardList = ({ articles = [], isLoading, noResults }) => {
+const NewsCardList = ({
+  articles = [],
+  onSaveArticle,
+  savedArticles,
+  isLoggedIn,
+  isLoading,
+  noResults,
+}) => {
   const articlesPerPage = 3;
   const [visibleArticles, setVisibleArticles] = useState(articlesPerPage);
 
@@ -43,7 +50,13 @@ const NewsCardList = ({ articles = [], isLoading, noResults }) => {
         <>
           <div className="news__card-list">
             {articlesToDisplay.map((article, index) => (
-              <NewsCard key={index} article={article} />
+              <NewsCard
+                key={index}
+                article={article}
+                onSave={onSaveArticle}
+                isLoggedIn={isLoggedIn}
+                savedArticles={savedArticles}
+              />
             ))}
           </div>
 

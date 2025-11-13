@@ -5,12 +5,14 @@ import "./LoginModal.css";
 function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   // Clear inputs whenever modal opens
   useEffect(() => {
     if (!isOpen) {
       setEmail("");
       setPassword("");
+      setError("");
     }
   }, [isOpen]);
 
@@ -32,12 +34,27 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
     };
   }, [isOpen, onClose]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    if (email && password) {
-      console.log("Login submitted:", { email, password });
-      onLogin({ email, password });
+    if (!email) {
+      setError("Invalid email address");
+      return;
+    }
+
+    if (!password) {
+      setError("Invalid password");
+      return;
+    }
+
+    try {
+      const success = await onLogin({ email, password });
+      if (!success) {
+        setError("Invalid email address or password");
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again");
     }
   };
 
@@ -61,6 +78,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        {error && <p className="modal__error">{error}</p>}
       </label>
 
       <label className="modal__label">

@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewsCard.css";
 
-const NewsCard = ({ article }) => {
+const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
   const { title, description, url, urlToImage, publishedAt, source } = article;
+  const [showMessage, setShowMessage] = useState(false);
 
-  const handleSave = (e) => {
-    e.currentTarget.classList.toggle("active");
+  const isSaved = savedArticles.some((a) => a.url === url);
+
+  const handleSave = () => {
+    if (!isLoggedIn) {
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 2000); // shows message for 2 seconds
+
+      return;
+    }
+    onSave(article);
   };
 
   return (
     <div className="news__card">
       {urlToImage && <img src={urlToImage} alt={title} />}
       <button
-        className="save_button"
-        aria-label="Save article"
+        className={`save_button ${isSaved ? "active" : ""}`}
+        aria-label={isSaved ? "Remove article" : "Save article"}
         onClick={handleSave}
       ></button>
+
+      {showMessage && <p className="news__card-msg">Sign in to save article</p>}
 
       <div className="news__card-content">
         <p className="news__card-date">

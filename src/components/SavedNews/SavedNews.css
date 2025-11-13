@@ -5,12 +5,14 @@
   box-sizing: border-box;
 }
 
+/* saved-news info box */
 .saved-news__info {
   background-color: #ffffff;
-  margin-bottom: 40px;
-  padding: 40px 60px;
+  margin: 0 -104px 40px;
+  padding: 40px 104px;
 }
 
+/* Main Headline */
 .saved-news__title {
   font-family: "Roboto Slab", serif;
   margin-bottom: 30px;
@@ -20,6 +22,7 @@
   line-height: 1.2;
 }
 
+/* Subtitile for *Saved articles* */
 .saved-news__subtitle {
   font-family: "Roboto Slab", serif;
   color: #1a1b2280;
@@ -28,6 +31,7 @@
   margin-top: 40px;
 }
 
+/* Keywords Line */
 .saved-news__keywords {
   font-family: "Roboto Slab", serif;
   font-size: 18px;
@@ -38,6 +42,7 @@
   font-weight: 700;
 }
 
+/* Keyword badge */
 .saved-news__keyword-badge {
   position: absolute;
   top: 16px;
@@ -57,8 +62,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 0 0 16px 16px; /* bottom corners only */
 }
 
+/* Grid wrapper below info */
 .saved-news__cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -66,6 +74,7 @@
   background-color: #f5f6f7;
 }
 
+/* Styling for each card */
 .saved-news__card {
   position: relative;
   background: #f5f6f7;
@@ -74,12 +83,32 @@
   flex-direction: column;
 }
 
+.saved-news__card-msg {
+  position: absolute;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 17px;
+  right: 82px;
+  width: 182px;
+  font-weight: 500;
+  height: 40px;
+  background: #ffffff;
+  color: #1a1b22;
+  border-radius: 8px;
+}
+
+/* Card Image */
 .saved-news__card-img {
   width: 100%;
   height: 272px;
   object-fit: cover;
+  border-radius: 16px 16px 0 0; /* top corners only */
 }
 
+/* Card Date */
 .saved-news__card-date {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -90,6 +119,7 @@
   margin-bottom: 12px;
 }
 
+/* Card Title */
 .saved-news__card-title {
   font-family: "Roboto Slab", serif;
   font-size: 26px;
@@ -99,6 +129,7 @@
   font-weight: 400;
 }
 
+/* Card Description */
 .saved-news__card-description {
   font-family: "Roboto Slab", serif;
   font-size: 16px;
@@ -108,6 +139,7 @@
   color: #1a1b22;
 }
 
+/* Card Source */
 .saved-news__card-source {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -118,6 +150,7 @@
   text-transform: uppercase;
 }
 
+/* For Empty State */
 .saved-news__empty {
   text-align: center;
   color: #1a1b22;
@@ -125,6 +158,7 @@
   margin-top: 40px;
 }
 
+/* Delete button */
 .saved-news__delete-btn {
   position: absolute;
   top: 16px;
@@ -134,6 +168,7 @@
   background-color: #ffffff;
 }
 
+/* Trash Icon */
 .saved-news__delete-btn:hover .trash__icon {
-  content: url("../../images/hover_trash.svg");
+  content: url("../../images/trashHover.svg");
 }

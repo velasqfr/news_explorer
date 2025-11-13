@@ -13,7 +13,7 @@
 
 .news__card-list-section {
   background-color: #f5f6f7;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .news__card-list {
@@ -24,7 +24,7 @@
   max-width: 1440px;
   margin: 0 auto;
   background-color: #f5f6f7;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
 }
 
 .news__card-list-footer {

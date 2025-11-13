@@ -24,7 +24,7 @@
 }
 
 .save_button:hover {
-  background: url("../../images/hover_save.svg") no-repeat center #ffffff;
+  background: url("../../images/saveHover.svg") no-repeat center #ffffff;
 }
 
 .save_button.active {
@@ -46,7 +46,7 @@
 }
 
 .news__card-date {
-  font-family: Source Sans Pro;
+  font-family: "Source Sans Pro";
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -86,4 +86,21 @@
   text-decoration: none;
   font-weight: 600;
   margin-top: auto;
+}
+
+.news__card-msg {
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 12px;
+  right: 55px;
+  width: 182px;
+  font-weight: 500;
+  height: 40px;
+  background: #ffffff;
+  color: #1a1b22;
+  border-radius: 8px;
 }

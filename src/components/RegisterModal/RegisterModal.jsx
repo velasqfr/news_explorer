@@ -63,6 +63,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          autoComplete="username"
           required
         />
       </label>
@@ -76,6 +77,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="new-password"
           required
         />
       </label>

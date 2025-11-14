@@ -76,6 +76,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          autoComplete="username"
           required
         />
         {error && <p className="modal__error">{error}</p>}
@@ -90,6 +91,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="current-password"
           required
         />
       </label>

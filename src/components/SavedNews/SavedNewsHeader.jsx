@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SavedNewsHeader.css";
 import "../Header/Header";
 import logout from "../../images/logout.svg";
 
 function SavedNewsHeader({ currentUser, onSignOutClick }) {
+  const navigate = useNavigate();
+
   return (
     <header className="header saved-news__header">
       <div className="header__container">
@@ -19,7 +21,13 @@ function SavedNewsHeader({ currentUser, onSignOutClick }) {
             </Link>
           </nav>
 
-          <button className="header__sign-out" onClick={onSignOutClick}>
+          <button
+            className="header__sign-out"
+            onClick={() => {
+              onSignOutClick();
+              navigate("/");
+            }}
+          >
             {currentUser?.name || currentUser?.username || "User"}
             <img src={logout} alt="Log out" className="signout__icon" />
           </button>

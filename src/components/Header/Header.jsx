@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logout from "../../images/logoutw.svg";
+// import menuOpen from "../../images/menuHomeIcon.svg";
+// import menuClose from "../../images/menuSaveIcon.svg";
 
 function Header({
   isLoggedIn,
@@ -9,6 +12,8 @@ function Header({
   onSignInClick,
   onSignOutClick,
 }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className={`header ${isLoggedIn ? "header__logged-in" : ""}`}>
       <div className="header__container">

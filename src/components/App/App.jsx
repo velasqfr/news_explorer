@@ -41,6 +41,7 @@ function App() {
     setUser({ email });
     setIsLoggedIn(true);
     closeAllModals();
+    return true;
   };
 
   const handleRegister = ({ name, email, username }) => {

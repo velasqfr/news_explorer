@@ -6,6 +6,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
 
   // Clear inputs whenever modal opens
   useEffect(() => {
@@ -13,6 +14,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       setEmail("");
       setPassword("");
       setUsername("");
+      setError("");
     }
   }, [isOpen]);
 
@@ -36,11 +38,17 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
 
-    if (email && password && username) {
-      console.log("Signup Submitted:", { email, password, username });
-      if (onRegister) onRegister({ email, password, username });
+    if (!email) return setError("This email is not available");
+    if (!password) return setError("Password is required");
+    if (!username) return setError("Username is required");
+
+    try {
+      onRegister?.({ email, password, username });
       onClose();
+    } catch {
+      setError("Something went wrong. Please try again");
     }
   };
 
@@ -91,9 +99,12 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           placeholder="Enter Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          autoComplete="username"
           required
         />
       </label>
+
+      {error && <p className="modal__error-register"> {error}</p>}
 
       <button type="submit" className="modal__submit">
         Sign Up

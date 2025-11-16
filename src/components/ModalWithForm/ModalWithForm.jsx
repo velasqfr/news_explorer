@@ -23,7 +23,7 @@ function ModalWithForm({
 
         <h2 className="modal__title"> {title} </h2>
 
-        <form className="modal__form" onSubmit={onSubmit}>
+        <form className="modal__form" onSubmit={onSubmit} noValidate>
           {children}
         </form>
       </div>

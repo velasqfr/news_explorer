@@ -1,0 +1,8 @@
+.modal__error-register {
+  font-family: Inter;
+  color: #ff0000;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  height: 14px;
+}

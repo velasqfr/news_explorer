@@ -5,14 +5,16 @@ import "./LoginModal.css";
 function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   // Clear inputs whenever modal opens
   useEffect(() => {
     if (!isOpen) {
       setEmail("");
       setPassword("");
-      setError("");
+      setEmailError("");
+      setPasswordError("");
     }
   }, [isOpen]);
 
@@ -36,25 +38,32 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setEmailError("");
+    setPasswordError("");
+
+    let hasError = false;
 
     if (!email) {
-      setError("Invalid email address");
-      return;
+      setEmailError("Invalid email address");
+      hasError = true;
     }
 
     if (!password) {
-      setError("Invalid password");
-      return;
+      setPasswordError("Invalid password");
+      hasError = true;
     }
+
+    if (hasError) return;
 
     try {
       const success = await onLogin({ email, password });
       if (!success) {
-        setError("Invalid email address or password");
+        setEmailError("Invalid email address or password");
+        setPasswordError("Invalid email address or password");
       }
     } catch (err) {
-      setError("Something went wrong. Please try again");
+      setEmailError("Something went wrong. Please try again");
+      setPasswordError("Something went wrong. Please try again");
     }
   };
 
@@ -79,7 +88,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           autoComplete="username"
           required
         />
-        {error && <p className="modal__error">{error}</p>}
+        {emailError && <p className="login__error-email">{emailError}</p>}
       </label>
 
       <label className="modal__label">
@@ -94,6 +103,9 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           autoComplete="current-password"
           required
         />
+        {passwordError && (
+          <p className="login__error-password">{passwordError}</p>
+        )}
       </label>
 
       <button type="submit" className="modal__submit">

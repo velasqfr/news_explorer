@@ -73,6 +73,14 @@
   letter-spacing: 0;
 }
 
+.header__drawer {
+  display: none;
+}
+
+.header__hamburger {
+  display: none;
+}
+
 /* ============== Header - Logged In============== */
 
 .header.header__logged-in .header__menu {
@@ -166,5 +174,67 @@
     width: auto;
     padding: 8px 16px;
     font-size: 14px;
+  }
+}
+
+/* ============== HAMBURGER DRAWER ============== */
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+
+  .header__sign-in {
+    display: none;
+  }
+  .header__container--open {
+    background-color: #1a1b22;
+  }
+
+  .header__hamburger {
+    display: block;
+    background: transparent;
+    border: none;
+    position: relative;
+    margin-left: auto;
+    margin-top: -40px;
+  }
+
+  .header__drawer {
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #1a1b22;
+  }
+
+  .header__nav-drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .header__nav-drawer:active {
+    color: #ffffff;
+  }
+
+  .drawer__signin-btn {
+    width: 176px;
+    height: 48px;
+    border-radius: 100px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 500;
+    font-size: 18px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    line-height: 24px;
+    letter-spacing: 0;
   }
 }

@@ -20,13 +20,12 @@ function Header({
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  const closeMenu = (event) => {
-    if (event.target.closest(".header__menu") === null) {
-      setIsMenuOpen(false);
-    }
-  };
-
   useEffect(() => {
+    const closeMenu = (event) => {
+      if (event.target.closest(".header__menu") === null) {
+        setIsMenuOpen(false);
+      }
+    };
     if (isMenuOpen) {
       document.addEventListener("click", closeMenu);
     } else {
@@ -82,29 +81,46 @@ function Header({
           )}
         </div>
 
+        {/* Drawer and overlay */}
         {isMenuOpen && (
-          <div className="header__drawer">
-            <nav className="header__nav-drawer">
-              <Link to="/" className={!isSavedNewsPage ? "active" : ""}>
-                Home
-              </Link>
-
-              {isLoggedIn && (
+          <>
+            <div className="header__drawer">
+              <nav className="header__nav-drawer">
+                {/* Home link */}
                 <Link
-                  to="/saved-news"
-                  className={isSavedNewsPage ? "active" : ""}
+                  to="/"
+                  className={`header__nav-home ${!isSavedNewsPage ? "active" : ""}`}
                 >
-                  Saved Articles
+                  Home
                 </Link>
-              )}
 
-              {!isLoggedIn && (
-                <button className="drawer__signin-btn" onClick={onSignInClick}>
-                  Sign In
-                </button>
-              )}
-            </nav>
-          </div>
+                {/* Only show Saved Articles if logged in */}
+                {isLoggedIn && (
+                  <Link
+                    to="/saved-news"
+                    className={isSavedNewsPage ? "active" : ""}
+                  >
+                    Saved Articles
+                  </Link>
+                )}
+
+                {/* Sign In button when not logged in */}
+                {!isLoggedIn && (
+                  <button
+                    className="drawer__signin-btn"
+                    onClick={onSignInClick}
+                  >
+                    Sign In
+                  </button>
+                )}
+              </nav>
+            </div>
+            {/* Overlay to close the drawer when clicked outside */}
+            <div
+              className="header__overlay"
+              onClick={() => setIsMenuOpen(false)}
+            ></div>
+          </>
         )}
       </div>
     </header>

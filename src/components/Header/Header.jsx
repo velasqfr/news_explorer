@@ -4,7 +4,6 @@ import "./Header.css";
 import logout from "../../images/logoutw.svg";
 import menuOpenIcon from "../../images/menuHomeIcon.svg";
 import closeIcon from "../../images/close.svg";
-// import menuCloseIcon from "../../images/menuSaveIcon.svg";
 
 function Header({
   isLoggedIn,
@@ -111,6 +110,16 @@ function Header({
                     onClick={onSignInClick}
                   >
                     Sign In
+                  </button>
+                )}
+
+                {/* Sign Out button when logged in */}
+                {isLoggedIn && (
+                  <button
+                    className="drawer__signout-btn"
+                    onClick={onSignOutClick}
+                  >
+                    Sign Out
                   </button>
                 )}
               </nav>

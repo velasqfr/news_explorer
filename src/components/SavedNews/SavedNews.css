@@ -172,3 +172,75 @@
 .saved-news__delete-btn:hover .trash__icon {
   content: url("../../images/trashHover.svg");
 }
+
+/* ============================== MOBILE (≤480px) ================================ */
+
+@media (max-width: 480px) {
+  .saved-news {
+    padding: 62px 16px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .saved-news__info {
+    padding: 20px;
+    margin: 0;
+    background-color: #ffffff;
+    max-width: 100%;
+    box-sizing: 0 auto;
+  }
+
+  .saved-news__subtitle {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .saved-news__title {
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  .saved-news__keywords {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-family: 400;
+  }
+
+  .saved-news__keyword-badge {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-family: 700;
+  }
+  .saved-news__card-content {
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start; /* Ensure content inside cards aligns to the left */
+  }
+
+  .saved-news__header .header__logo {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .saved-news__header .header__sign-out {
+    display: none;
+  }
+
+  .saved-news__card {
+    width: 100%; /* Ensure cards take up full width */
+    max-width: 100%; /* Prevent cards from exceeding the screen */
+    margin: 0 auto; /* Center cards */
+    padding: 20px;
+  }
+
+  .saved-news__card-img {
+    width: 100%; /* Ensure image fits within the card */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

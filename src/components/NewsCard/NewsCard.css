@@ -104,3 +104,28 @@
   color: #1a1b22;
   border-radius: 8px;
 }
+/* ============================== MOBILE (≤480px) ================================ */
+
+@media (max-width: 480px) {
+  .news__card {
+    width: 100%;
+    height: auto;
+  }
+
+  .news__card-list {
+    display: block;
+    padding-bottom: 40px;
+  }
+
+  .news__card-list-footer {
+    padding-bottom: 40px;
+  }
+
+  .news__card-footer {
+    padding-bottom: 40px;
+  }
+
+  .news_card-list-title {
+    font-size: 24px;
+  }
+}

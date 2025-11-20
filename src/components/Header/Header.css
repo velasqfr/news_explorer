@@ -12,6 +12,7 @@
 
 .header__container {
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -220,6 +221,9 @@
     display: none;
   }
 
+  .header .header__sign-out {
+    display: none; /* Hide Sign Out in mobile */
+  }
   .header__nav a {
     display: none;
   }
@@ -229,8 +233,8 @@
   }
 
   .header__container {
-    gap: 0;
     padding: 12px 16px;
+    gap: 0;
   }
   .header__container--open {
     background-color: #1a1b22; /* Drawer background color */
@@ -308,6 +312,4 @@
   .header__container--open .header__drawer {
     display: block;
   }
-
-  /* ========================== HAMBURGER & NAV OVERRIDES) ======================= */
 }

@@ -65,15 +65,20 @@
   justify-content: center;
 }
 
-.header__sign-out {
+.header .header__sign-out {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
 
-.signout__icon {
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
+/* ============================== MOBILE (≤480px) ================================ */
+@media (max-width: 480px) {
+  .header .header__sign-out {
+    display: none;
+  }
+
+  .saved-news__header .header__nav a.header__link.active {
+    color: red;
+  }
 }

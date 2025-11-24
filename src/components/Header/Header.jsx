@@ -36,6 +36,21 @@ function Header({
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("keydown", handleEsc);
+    } else {
+      document.removeEventListener("keydown", handleEsc);
+    }
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, [isMenuOpen]);
+
   return (
     <header className={`header ${isLoggedIn ? "header__logged-in" : ""}`}>
       <div

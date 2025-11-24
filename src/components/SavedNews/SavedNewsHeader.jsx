@@ -1,91 +1,105 @@
-import { Link, useNavigate, useState, useEffect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./SavedNewsHeader.css";
 import "../Header/Header";
 import logout from "../../images/logout.svg";
-import menuCloseIcon from "../../images/menuSaveIcon.svg";
+import menuSaveIcon from "../../images/menuSaveIcon.svg";
+import closeIcon from "../../images/close.svg";
 
 function SavedNewsHeader({ currentUser, onSignOutClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
+  // CLose draer when clicking outside
   useEffect(() => {
     const closeMenu = (event) => {
-      if (event.target.closest(".header__menu") === null) {
+      if (
+        !event.target.closest(".header__menu") &&
+        !event.target.closest(".header__drawer")
+      ) {
         setIsMenuOpen(false);
       }
     };
-    if (isMenuOpen) {
-      document.addEventListener("click", closeMenu);
-    } else {
-      document.removeEventListener("click", closeMenu);
-    }
+    document.addEventListener("click", closeMenu);
 
-    return () => {
-      document.removeEventListener("click", closeMenu);
+    return () => document.removeEventListener("click", closeMenu);
+  }, []);
+
+  // Close drawer on ESC
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
     };
-  }, [isMenuOpen]);
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, []);
 
   return (
-    <header className="header saved-news__header">
-      <div className="header__container">
-        <h1 className="header__logo">News Explorer</h1>
-
-        {/* Mobile Hamburger */}
-        <button
-          classsName="header__hamburger"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
+    <>
+      <header className="header saved-news__header">
+        <div
+          className={`header__container ${isMenuOpen ? "header__container--open" : ""}`}
         >
-          <img src={isMenuOpen ? closeIcon : menuCloseIcon} alt="Menu" />
-        </button>
+          <h1 className="header__logo">News Explorer</h1>
+          <div className="header__menu">
+            <nav className="header__nav">
+              <Link to="/" className="header__link">
+                Home
+              </Link>
+              <Link to="/saved-news" className="header__link active">
+                Saved Articles
+              </Link>
+            </nav>
 
-        <div className="header__menu">
-          <nav className="header__nav">
-            <Link to="/" className="header__link">
-              Home
-            </Link>
-            <Link to="/saved-news" className="header__link active">
-              Saved Articles
-            </Link>
-          </nav>
+            {/* Mobile Hamburger */}
+            <button
+              className="header__hamburger"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <img src={isMenuOpen ? closeIcon : menuSaveIcon} alt="Menu" />
+            </button>
 
-          <button
-            className="header__sign-out"
-            onClick={() => {
-              onSignOutClick();
-              navigate("/");
-            }}
-          >
-            {currentUser?.name || currentUser?.username || "User"}
-            <img src={logout} alt="Log out" className="signout__icon" />
-          </button>
+            <button
+              className="header__sign-out"
+              onClick={() => {
+                onSignOutClick();
+                navigate("/");
+              }}
+            >
+              {currentUser?.name || currentUser?.username || "User"}
+              <img src={logout} alt="Log out" className="signout__icon" />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Drawer and overlay */}
+      {/* Drawer and overlay for mobile */}
       {isMenuOpen && (
         <>
-          <div className="header__drawer">
+          <div className="savednews__drawer">
             <nav className="header__nav-drawer">
               <Link to="/" className="header__nav-home">
                 Home
-              </Link>
-              <Link to="/saved-news" className="header__nav-home active">
-                Saved Articles
               </Link>
               <button className="drawer__signout-btn" onClick={onSignOutClick}>
                 Sign Out
               </button>
             </nav>
           </div>
-          <div className="header__overlay" onClick={toggleMenu}></div>
+          <div
+            className={`header__overlay ${isMenuOpen ? "active" : ""}`}
+            onClick={toggleMenu}
+          ></div>
         </>
       )}
-    </header>
+    </>
   );
 }
 

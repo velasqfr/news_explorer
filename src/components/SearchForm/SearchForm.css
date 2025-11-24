@@ -72,3 +72,52 @@
   border: none;
   font-size: 16px;
 }
+
+/* ============================== MOBILE (≤480px) ================================ */
+@media (max-width: 480px) {
+  .search__content {
+    width: 100%;
+    padding: 0 16px;
+    height: auto;
+    text-align: center;
+  }
+
+  .search__title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 0 0 16px 0;
+  }
+  .search__subtitle {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 122px 0;
+    padding: 0 12px;
+  }
+  .search__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .search__input,
+  .search__button {
+    width: 288px;
+    height: 56px;
+    border-radius: 28px;
+  }
+
+  .search__input {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+
+  .search__button {
+    background-color: #2f71e5;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

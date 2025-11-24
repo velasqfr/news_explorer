@@ -221,9 +221,10 @@
     display: none;
   }
 
-  .header .header__sign-out {
+  .header.header__logged-in .header__sign-out {
     display: none; /* Hide Sign Out in mobile */
   }
+
   .header__nav a {
     display: none;
   }

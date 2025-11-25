@@ -17,10 +17,11 @@ function ModalWithForm({
       <div className="modal__overlay" onClick={onClose}></div>
 
       <div className={`modal__content ${className || ""}`}>
-        <button className="modal__close" onClick={onClose}>
-          <img src={closeIcon} alt="Close" className="close__button" />
-        </button>
-
+        <div className="modal__header">
+          <button className="modal__close" onClick={onClose}>
+            <img src={closeIcon} alt="Close" className="close__button" />
+          </button>
+        </div>
         <h2 className="modal__title"> {title} </h2>
 
         <form className="modal__form" onSubmit={onSubmit} noValidate>

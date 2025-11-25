@@ -7,6 +7,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   // Clear inputs whenever modal opens
   useEffect(() => {
@@ -15,6 +16,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       setPassword("");
       setUsername("");
       setError("");
+      setSuccessMessage("");
     }
   }, [isOpen]);
 
@@ -36,18 +38,36 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     };
   }, [isOpen, onClose]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccessMessage("");
 
+    // Checks if all fields are empty
+    if (!email && !password && !username) {
+      return setError("Please enter your information");
+    }
+
+    // Checks individual fields for missing value
     if (!email) return setError("This email is not available");
     if (!password) return setError("Password is required");
     if (!username) return setError("Username is required");
 
     try {
-      onRegister?.({ email, password, username });
-      onClose();
-    } catch {
+      const result = await onRegister?.({ email, password, username });
+
+      console.log("onRegister result:", result);
+
+      if (result) {
+        setSuccessMessage("Registration successfully completed!");
+        setTimeout(() => {
+          setSuccessMessage("");
+          onClose();
+        }, 3000);
+      } else {
+        setError("Registration failed. Please try again.");
+      }
+    } catch (err) {
       setError("Something went wrong. Please try again");
     }
   };
@@ -55,72 +75,78 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   if (!isOpen) return null;
 
   return (
-    <ModalWithForm
-      title="Sign Up"
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={handleSubmit}
-      className="register"
-    >
-      <label className="modal__label">
-        Email
-        <input
-          type="email"
-          name="email"
-          className="modal__input"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoComplete="username"
-          required
-        />
-      </label>
+    <div>
+      {/* Show success message */}
+      {successMessage && (
+        <div className="registration__message">{successMessage}</div>
+      )}
+      <ModalWithForm
+        title="Sign Up"
+        isOpen={isOpen}
+        onClose={onClose}
+        onSubmit={handleSubmit}
+        className="register"
+      >
+        <label className="modal__label">
+          Email
+          <input
+            type="email"
+            name="email"
+            className="modal__input"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="username"
+            required
+          />
+        </label>
 
-      <label className="modal__label">
-        Password
-        <input
-          type="password"
-          name="password"
-          className="modal__input"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="new-password"
-          required
-        />
-      </label>
+        <label className="modal__label">
+          Password
+          <input
+            type="password"
+            name="password"
+            className="modal__input"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="new-password"
+            required
+          />
+        </label>
 
-      <label className="modal__label">
-        Username
-        <input
-          type="text"
-          name="username"
-          className="modal__input"
-          placeholder="Enter Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          autoComplete="username"
-          required
-        />
-      </label>
+        <label className="modal__label">
+          Username
+          <input
+            type="text"
+            name="username"
+            className="modal__input"
+            placeholder="Enter Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
+            required
+          />
+        </label>
 
-      {error && <p className="modal__error-register"> {error}</p>}
+        {error && <p className="modal__error-register"> {error}</p>}
 
-      <button type="submit" className="modal__submit">
-        Sign Up
-      </button>
-      <p className="modal__switch">
-        or{" "}
-        <button
-          type="button"
-          className="modal__sign-in"
-          placeholder="Enter password"
-          onClick={onSignInClick}
-        >
-          Sign In
+        <button type="submit" className="modal__submit">
+          Sign Up
         </button>
-      </p>
-    </ModalWithForm>
+        <p className="modal__switch">
+          or{" "}
+          <button
+            type="button"
+            className="modal__sign-in"
+            placeholder="Enter password"
+            onClick={onSignInClick}
+          >
+            Sign In
+          </button>
+        </p>
+      </ModalWithForm>
+    </div>
   );
 }
 

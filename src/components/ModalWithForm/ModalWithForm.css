@@ -105,3 +105,31 @@
   color: #2f71e5;
   cursor: pointer;
 }
+
+/* ======================= Mobile View (<= 480px) ========================= */
+@media (max-width: 480px) {
+  .modal__content {
+    width: 100%;
+    max-width: 480px; /* Ensures it fits within mobile screen */
+    padding: 10px;
+    margin-top: 60px; /* Keep space at top */
+    height: calc(100vh - 35px); /* Fill the screen but leave space at the top */
+  }
+
+  .modal__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between form elements */
+  }
+
+  .modal__close {
+    position: absolute;
+    top: -50px;
+    left: 420px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+}

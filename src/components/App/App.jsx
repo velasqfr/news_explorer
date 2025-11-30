@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { mockArticles } from "../../utils/mockArticles";
+// import { mockArticles } from "../../utils/mockArticles";
+import { searchNews } from "../../utils/api";
 
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNews/SavedNewsHeader";
@@ -19,7 +20,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null); // null -> no one is logged in
   const [searchTerm, setSearchTerm] = useState("");
-  const [articles, setArticles] = useState(mockArticles);
+  const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
@@ -56,13 +57,21 @@ function App() {
   };
 
   const handleSaveArticle = (article) => {
+    // Extracts keyword from title
+    const words = article.title.split(" ");
+    const keyword = words.find((w) => /^[A-Z]/.test(w)) || words[0] || "News";
+
+    // For keyword badge
+    const articleWithKeyword = { ...article, keyword };
+
     setSavedArticles((prev) => {
       const alreadySaved = prev.find((a) => a.url === article.url);
       if (alreadySaved) {
         // remove if already saved
         return prev.filter((a) => a.url !== article.url);
       } else {
-        return [...prev, article];
+        // Add new article w/ keyword
+        return [...prev, articleWithKeyword];
       }
     });
   };
@@ -71,12 +80,32 @@ function App() {
     setSavedArticles((prev) => prev.filter((article) => article.url !== url));
   };
 
-  const handleSearch = (term) => {
-    setSearchTerm(term);
+  const handleSearch = async (term) => {
+    if (!term.trim()) {
+      setArticles([]); // clears previous results
+      setNoResults(false); //reset "Nothing Found"
+      return;
+    }
     setIsLoading(true); // show preloader
-    setNoResults(false); // reset no results
+    setNoResults(false); // hide "Nothing Found"
 
-    setTimeout(() => {
+    try {
+      const results = await searchNews(term); // calls the real API
+
+      if (results.length === 0) {
+        setNoResults(true); // Shows "Nothing Found"
+      }
+
+      setArticles(results); // Updates state for NewsCardList
+    } catch (error) {
+      console.error("Search error", error);
+      setNoResults(true); // Show "Nothing Found"
+      setArticles([]); // CLear previous results
+    } finally {
+      setIsLoading(false); // hide preloader
+    }
+  };
+  /* setTimeout(() => {
       // simulate API call later on
       const filtered = mockArticles.filter((article) =>
         article.title.toLowerCase().includes(term.toLowerCase())
@@ -85,7 +114,7 @@ function App() {
       setIsLoading(false); // hide preloader
       if (filtered.length === 0) setNoResults(true);
     }, 1000); // simulate is loading
-  };
+  }; */
 
   return (
     <Router>

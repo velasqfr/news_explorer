@@ -53,13 +53,24 @@ function App() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    setUser(null);
+    setUser(null); // clears user data
+  };
+
+  const extractKeyword = (title) => {
+    if (!title) return "News";
+    const words = title.split(" ");
+
+    // Find meaningful capitalized words (minimum 4 letters)
+    const meaningful = words.find((w) => /^[A-Z][a-zA-Z]{3,}/.test(w));
+
+    if (meaningful) return meaningful;
+
+    return words[0] || "News";
   };
 
   const handleSaveArticle = (article) => {
     // Extracts keyword from title
-    const words = article.title.split(" ");
-    const keyword = words.find((w) => /^[A-Z]/.test(w)) || words[0] || "News";
+    const keyword = extractKeyword(article.title);
 
     // For keyword badge
     const articleWithKeyword = { ...article, keyword };

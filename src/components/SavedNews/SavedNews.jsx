@@ -7,12 +7,30 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
 
   const articleCount = savedArticles.length;
 
-  // Get unique keywords from all saved articles
-  const keywords = [...new Set(savedArticles.map((a) => a.keyword))];
+  // Count how often each keyword appears
+  const getKeywordCounts = (articles) => {
+    const counts = {};
+    articles.forEach((article) => {
+      const key = article.keyword || "News";
+      counts[key] = (counts[key] || 0) + 1;
+    });
+    return counts;
+  };
 
-  // Get top 2 keywords for display, and count remaining
-  const topKeywords = keywords.slice(0, 2).join(",");
-  const remainingCount = keywords.length - 2; // calculates hw many keywords are left beyond the first two
+  const keywordCount = getKeywordCounts(savedArticles);
+
+  // Sort keywords by frequesncy (descending)
+  const sortedKeywords = Object.entries(keywordCount)
+    .sort((a, b) => b[1] - a[1])
+    .map(([keyword]) => keyword);
+
+  // Building the "By Keywords" display text
+  let keywordsDisplay = "";
+  if (sortedKeywords.length > 2) {
+    keywordsDisplay = `${sortedKeywords[0]}, ${sortedKeywords[1]} and ${sortedKeywords.length - 2} other${sortedKeywords.length - 2 > 1 ? "s" : ""}`;
+  } else {
+    keywordsDisplay = sortedKeywords.join(", ");
+  }
 
   const handleDelete = (url) => {
     if (showRemovedMsg === url) {
@@ -35,12 +53,11 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
           {articleCount} saved {articleCount == 1 ? "article" : "articles"}
         </h1>
 
-        {articleCount > 0 && keywords.length > 0 && (
+        {articleCount > 0 && sortedKeywords.length > 0 && (
           <p className="saved-news__keywords">
             By keywords:{" "}
             <span className="saved-news__keywords-highlight">
-              {topKeywords}
-              {remainingCount > 0 && `, and ${remainingCount} other`}
+              {keywordsDisplay}
             </span>
           </p>
         )}

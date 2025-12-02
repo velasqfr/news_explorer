@@ -1,7 +1,15 @@
+// --------------------------------------------------
+// IMPORTS
+// --------------------------------------------------
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  getUser,
+  setUser,
+  getSavedArticles,
+  saveArticleList,
+} from "../../utils/localStorage";
 import "./App.css";
-// import { mockArticles } from "../../utils/mockArticles";
 import { searchNews } from "../../utils/api";
 
 import Header from "../Header/Header";
@@ -15,16 +23,22 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
+  // --------------------------------------------------
+  // STATE: User, Auth, Search, Articles, Modals
+  // --------------------------------------------------
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null); // null -> no one is logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
+  const [user, setUserState] = useState(getUser()); // loads saved user
   const [searchTerm, setSearchTerm] = useState("");
   const [articles, setArticles] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticles, setSavedArticles] = useState(getSavedArticles()); // loads saved articles
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
 
+  // --------------------------------------------------
+  // MODAL HANDLERS
+  // --------------------------------------------------
   const openLoginFromRegister = () => {
     setIsRegisterOpen(false);
     setIsLoginOpen(true);
@@ -35,27 +49,38 @@ function App() {
     setIsRegisterOpen(false);
   };
 
+  // --------------------------------------------------
+  // AUTH HANDLERS (Login, Register, Logout)
+  // --------------------------------------------------
   const handleLoginOpen = () => setIsLoginOpen(true);
   const handleRegisterOpen = () => setIsRegisterOpen(true);
 
   const handleLogin = ({ email }) => {
-    setUser({ email });
+    const newUser = { email };
+    setUserState(newUser); // state
+    setUser(newUser); // localStorage
     setIsLoggedIn(true);
     closeAllModals();
     return true;
   };
 
   const handleRegister = ({ name, email, username }) => {
-    setUser({ name, email, username });
+    const newUser = { name, email, username };
+    setUserState(newUser);
+    setUser(newUser);
     setIsLoggedIn(true);
     closeAllModals();
   };
 
   const handleLogout = () => {
+    setUserState(null);
     setIsLoggedIn(false);
-    setUser(null); // clears user data
+    setUser(null); // clears user data from localStorage
   };
 
+  // --------------------------------------------------
+  // KEYWORD EXTRACTION (For Saved Articles Feature)
+  // --------------------------------------------------
   const extractKeyword = (title) => {
     if (!title) return "News";
     const words = title.split(" ");
@@ -68,28 +93,40 @@ function App() {
     return words[0] || "News";
   };
 
+  // --------------------------------------------------
+  // SAVING & DELETING ARTICLES
+  // --------------------------------------------------
   const handleSaveArticle = (article) => {
-    // Extracts keyword from title
-    const keyword = extractKeyword(article.title);
-
-    // For keyword badge
-    const articleWithKeyword = { ...article, keyword };
+    const keyword = extractKeyword(article.title); // Extracts keyword from title
+    const articleWithKeyword = { ...article, keyword }; // For keyword badge
 
     setSavedArticles((prev) => {
       const alreadySaved = prev.find((a) => a.url === article.url);
+      let updatedArticles;
+
       if (alreadySaved) {
         // remove if already saved
-        return prev.filter((a) => a.url !== article.url);
+        updatedArticles = prev.filter((a) => a.url !== article.url);
       } else {
         // Add new article w/ keyword
-        return [...prev, articleWithKeyword];
+        updatedArticles = [...prev, articleWithKeyword];
       }
+      saveArticleList(updatedArticles); // updates localStorage
+      return updatedArticles;
     });
   };
 
   const handleDeleteArticle = (url) => {
-    setSavedArticles((prev) => prev.filter((article) => article.url !== url));
+    setSavedArticles((prev) => {
+      const updatedArticles = prev.filter((article) => article.url !== url);
+      saveArticleList(updatedArticles); // updates localStorage
+      return updatedArticles;
+    });
   };
+
+  // --------------------------------------------------
+  // SEARCH / API REQUEST
+  // --------------------------------------------------
 
   const handleSearch = async (term) => {
     if (!term.trim()) {
@@ -116,21 +153,15 @@ function App() {
       setIsLoading(false); // hide preloader
     }
   };
-  /* setTimeout(() => {
-      // simulate API call later on
-      const filtered = mockArticles.filter((article) =>
-        article.title.toLowerCase().includes(term.toLowerCase())
-      );
-      setArticles(filtered);
-      setIsLoading(false); // hide preloader
-      if (filtered.length === 0) setNoResults(true);
-    }, 1000); // simulate is loading
-  }; */
 
+  // --------------------------------------------------
+  // RENDER
+  // --------------------------------------------------
   return (
     <Router>
       <div className="app">
         <Routes>
+          {/* HOME PAGE */}
           <Route
             path="/"
             element={
@@ -159,6 +190,8 @@ function App() {
               </>
             }
           />
+
+          {/* SAVED NEWS PAGE */}
           <Route
             path="/saved-news"
             element={
@@ -180,6 +213,7 @@ function App() {
           />
         </Routes>
 
+        {/* MODALS */}
         <LoginModal
           isOpen={isLoginOpen}
           onClose={closeAllModals}

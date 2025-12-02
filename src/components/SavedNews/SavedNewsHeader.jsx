@@ -88,7 +88,14 @@ function SavedNewsHeader({ currentUser, onSignOutClick }) {
               <Link to="/" className="header__nav-home">
                 Home
               </Link>
-              <button className="drawer__signout-btn" onClick={onSignOutClick}>
+              <button
+                className="drawer__signout-btn"
+                onClick={() => {
+                  onSignOutClick();
+                  navigate("/");
+                  setIsMenuOpen(false);
+                }}
+              >
                 Sign Out
               </button>
             </nav>

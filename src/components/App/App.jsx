@@ -35,6 +35,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState(getSavedArticles()); // loads saved articles
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
+  const [apiError, setApiError] = useState(false);
 
   // --------------------------------------------------
   // MODAL HANDLERS
@@ -132,10 +133,12 @@ function App() {
     if (!term.trim()) {
       setArticles([]); // clears previous results
       setNoResults(false); //reset "Nothing Found"
+      setApiError(false); // resets error
       return;
     }
     setIsLoading(true); // show preloader
     setNoResults(false); // hide "Nothing Found"
+    setApiError(false); // resets error
 
     try {
       const results = await searchNews(term); // calls the real API
@@ -147,8 +150,9 @@ function App() {
       setArticles(results); // Updates state for NewsCardList
     } catch (error) {
       console.error("Search error", error);
-      setNoResults(true); // Show "Nothing Found"
-      setArticles([]); // CLear previous results
+      setApiError(true); // Show API eror msgs
+      setNoResults(false); // Hides "Nothing Found"
+      setArticles([]); // Clears previous results
     } finally {
       setIsLoading(false); // hide preloader
     }
@@ -183,6 +187,7 @@ function App() {
                     onSaveArticle={handleSaveArticle}
                     savedArticles={savedArticles}
                     isLoggedIn={isLoggedIn}
+                    apiError={apiError}
                   />
                   <About />
                 </main>

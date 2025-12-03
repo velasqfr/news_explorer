@@ -1,0 +1,27 @@
+.modal__content.register-success {
+  width: 430px;
+  height: 182px;
+  opacity: 1;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration__title {
+  font-family: "Roboto Slab", Arial, serif;
+  font-size: 24px;
+  font-weight: 900;
+  margin-top: -50px;
+}
+
+.registration__signin-btn {
+  color: #2f71e5;
+  background: none;
+  border: none;
+  margin-left: -20px;
+  cursor: pointer;
+  gap: 14px;
+}

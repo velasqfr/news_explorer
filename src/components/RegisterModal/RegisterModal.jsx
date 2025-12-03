@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
+import RegistrationSuccess from "../RegistrastionSucess/RegistrationSuccess";
 
 function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
 
   // Clear inputs whenever modal opens
   useEffect(() => {
@@ -16,7 +17,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       setPassword("");
       setUsername("");
       setError("");
-      setSuccessMessage("");
+      setIsRegistrationSuccess(false);
     }
   }, [isOpen]);
 
@@ -26,7 +27,8 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
 
     const handleEsc = (event) => {
       if (event.key === "Escape") {
-        onClose(); // closes modal on escape
+        if (isRegistrationSuccess) setIsRegistrationSuccess(false);
+        else onClose(); // closes modal on escape
       }
     };
 
@@ -41,7 +43,6 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccessMessage("");
 
     // Checks if all fields are empty
     if (!email && !password && !username) {
@@ -59,11 +60,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       console.log("onRegister result:", result);
 
       if (result) {
-        setSuccessMessage("Registration successfully completed!");
-        setTimeout(() => {
-          setSuccessMessage("");
-          onClose();
-        }, 3000);
+        setIsRegistrationSuccess(true); // shows success component
       } else {
         setError("Registration failed. Please try again.");
       }
@@ -72,14 +69,37 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     }
   };
 
+  useEffect(() => {
+    if (isRegistrationSuccess) {
+      onClose(); // this will close the background form modal once the registartion is complete
+    }
+  }, [isRegistrationSuccess, onClose]);
+
+  // Rendering the Registration Success Component
+  if (isRegistrationSuccess) {
+    return (
+      <ModalWithForm
+        isOpen={true}
+        onClose={() => setIsRegistrationSuccess(false)}
+        className="register-success"
+      >
+        <RegistrationSuccess
+          onClose={() => setIsRegistrationSuccess(false)}
+          onGoToSignin={() => {
+            setIsRegistrationSuccess(false);
+            onClose(); // close the registration modal
+            onSignInClick(); // switch to login mode
+          }}
+        />
+      </ModalWithForm>
+    );
+  }
+
+  // Render the regular registration form
   if (!isOpen) return null;
 
   return (
     <div>
-      {/* Show success message */}
-      {successMessage && (
-        <div className="registration__message">{successMessage}</div>
-      )}
       <ModalWithForm
         title="Sign Up"
         isOpen={isOpen}

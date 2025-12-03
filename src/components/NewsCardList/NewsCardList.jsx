@@ -4,8 +4,6 @@ import Preloader from "../Preloader/Preloader";
 import "./NewsCardList.css";
 import nothing from "../../images/no_results.svg";
 
-import { mockArticles } from "../../utils/mockArticles";
-
 const NewsCardList = ({
   articles = [],
   onSaveArticle,
@@ -18,7 +16,7 @@ const NewsCardList = ({
   const [visibleArticles, setVisibleArticles] = useState(articlesPerPage);
 
   useEffect(() => {
-    // whenever the articles prop changes, reset how many are visible
+    // Reset visible articles whenever the articles change
     setVisibleArticles(articlesPerPage);
   }, [articles]); // <–– dependency array: runs when `articles` changes
 
@@ -49,9 +47,9 @@ const NewsCardList = ({
       ) : (
         <>
           <div className="news__card-list">
-            {articlesToDisplay.map((article, index) => (
+            {articlesToDisplay.map((article) => (
               <NewsCard
-                key={index}
+                key={article.url || index} // index is the fallback
                 article={article}
                 onSave={onSaveArticle}
                 isLoggedIn={isLoggedIn}

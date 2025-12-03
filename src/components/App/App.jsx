@@ -53,7 +53,11 @@ function App() {
   // --------------------------------------------------
   // AUTH HANDLERS (Login, Register, Logout)
   // --------------------------------------------------
-  const handleLoginOpen = () => setIsLoginOpen(true);
+  const handleLoginOpen = () => {
+    setIsLoginOpen(true);
+    setIsRegisterOpen(false);
+  };
+
   const handleRegisterOpen = () => setIsRegisterOpen(true);
 
   const handleLogin = ({ email }) => {
@@ -65,12 +69,11 @@ function App() {
     return true;
   };
 
-  const handleRegister = ({ name, email, username }) => {
-    const newUser = { name, email, username };
-    setUserState(newUser);
-    setUser(newUser);
-    setIsLoggedIn(true);
-    closeAllModals();
+  const handleRegister = ({ password, email, username }) => {
+    const newUser = { email, username, password };
+    setUserState(newUser); // saves the user temporarily
+    setUser(newUser); // saves to localStorage
+    return true;
   };
 
   const handleLogout = () => {

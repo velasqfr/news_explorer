@@ -6,6 +6,7 @@ function SearchForm({ onSearch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!input.trim()) return; // added to prevent empty search
     onSearch(input);
   };
 

@@ -11,7 +11,7 @@ function RegistrationSuccess({ onClose, onGoToSignin }) {
         onClick={onClose}
       />
       <h1 className="registration__title">
-        Registration Successfully Completed
+        Registration Successfully Completed!
       </h1>
       <button className="registration__signin-btn" onClick={onGoToSignin}>
         Sign In

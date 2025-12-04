@@ -35,11 +35,14 @@
 .saved-news__keywords {
   font-family: "Roboto Slab", serif;
   font-size: 18px;
+  font-weight: 400;
   color: #1a1b22;
 }
 
 .saved-news__keywords-highlight {
+  font-family: "Roboto Slab", serif;
   font-weight: 700;
+  font-size: 18px;
 }
 
 /* Keyword badge */
@@ -148,6 +151,7 @@
   line-height: 20px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  margin-top: 12px;
 }
 
 /* For Empty State */
@@ -213,6 +217,8 @@
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-family: 700;
+    top: 40px;
+    left: 40px;
   }
   .saved-news__card-content {
     padding: 16px 12px;
@@ -242,5 +248,18 @@
   .saved-news__card-img {
     width: 100%; /* Ensure image fits within the card */
     height: auto; /* Maintain aspect ratio */
+  }
+
+  .saved-news__delete-btn {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+
+  .saved-news__card-msg {
+    font-size: 10px;
+    width: 140px;
+    height: 30px;
+    margin-top: 25px;
+    margin-right: 20px;
   }
 }

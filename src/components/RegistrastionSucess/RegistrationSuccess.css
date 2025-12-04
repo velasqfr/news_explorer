@@ -20,6 +20,8 @@
 .registration__signin-btn {
   color: #2f71e5;
   background: none;
+  font-size: 18px;
+  font-weight: 400;
   border: none;
   margin-left: -20px;
   cursor: pointer;

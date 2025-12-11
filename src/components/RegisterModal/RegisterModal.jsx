@@ -57,8 +57,6 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     try {
       const result = await onRegister?.({ email, password, username });
 
-      console.log("onRegister result:", result);
-
       if (result) {
         setIsRegistrationSuccess(true); // shows success component
       } else {

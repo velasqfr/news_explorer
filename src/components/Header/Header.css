@@ -253,7 +253,7 @@
     outline: none; /* Remove outline when focused */
   }
 
-  .header__nav-home.active {
+  .header__nav-link--home.active {
     font-family: "Roboto Slab", serif;
     color: #ffffff;
     margin-left: -15px;
@@ -280,7 +280,7 @@
     padding: 0 16px;
   }
 
-  .drawer__signin-btn {
+  .header__drawer-signin-btn {
     width: 100%;
     max-width: 176px;
     height: 48px;

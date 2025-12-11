@@ -109,7 +109,7 @@ function App() {
       let updatedArticles;
 
       if (alreadySaved) {
-        // remove if already saved
+        // remove if already saved - "unsaving"
         updatedArticles = prev.filter((a) => a.url !== article.url);
       } else {
         // Add new article w/ keyword

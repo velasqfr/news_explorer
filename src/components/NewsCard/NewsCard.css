@@ -11,7 +11,7 @@
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
-.save_button {
+.news__card-save-btn {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -23,11 +23,11 @@
   transition: background-image 0.2s ease;
 }
 
-.save_button:hover {
+.news__card-save-btn:hover {
   background: url("../../images/saveHover.svg") no-repeat center #ffffff;
 }
 
-.save_button.active {
+.news__card-save-btn.active {
   background: url("../../images/marked_save.svg") no-repeat center #ffffff;
 }
 
@@ -59,7 +59,7 @@
 .news__card-title {
   font-family: "Roboto Slab", Arial, serif;
   font-size: 18px;
-  font-weight: 400px;
+  font-weight: 400;
   color: #1a1b22;
   margin: 0 0 10px 0;
 }
@@ -125,7 +125,7 @@
     padding-bottom: 40px;
   }
 
-  .news_card-list-title {
+  .news__card-list-title {
     font-size: 24px;
   }
 }

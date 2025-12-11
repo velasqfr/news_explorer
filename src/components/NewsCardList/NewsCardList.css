@@ -33,7 +33,7 @@
   padding-bottom: 80px;
 }
 
-.show__more-btn {
+.news__card-list__show-more-btn {
   background-color: #ffffff;
   color: #1a1b22;
   font-weight: 500;
@@ -45,7 +45,7 @@
   padding: 18px 48px;
 }
 
-.show__more-btn:hover {
+.news__card-list__show-more-btn:hover {
   background-color: #e8e8e8;
   color: #ffffff;
 }
@@ -60,16 +60,15 @@
   align-items: center;
 }
 
-.no__results-title {
+.news__card-list__no-results-title {
   font-size: 26px;
-  font-weight: 400;
   font-weight: bold;
   margin-top: 31px;
   margin-bottom: 16px;
   color: #1a1b22;
 }
 
-.no__results-text {
+.news__card-list__no-results-text {
   font-size: 18px;
   font-weight: 400;
   color: #6c707a;

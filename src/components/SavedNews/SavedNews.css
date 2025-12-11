@@ -210,7 +210,7 @@
   .saved-news__keywords {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
-    font-family: 400;
+    font-weight: 400;
   }
 
   .saved-news__keyword-badge {

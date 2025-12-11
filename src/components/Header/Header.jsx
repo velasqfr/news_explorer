@@ -85,7 +85,11 @@ function Header({
           {isLoggedIn ? (
             <button className="header__sign-out" onClick={onSignOutClick}>
               {currentUser?.name || currentUser?.username || "User"}
-              <img src={logout} alt="Log out" className="signout__icon" />
+              <img
+                src={logout}
+                alt="Log out"
+                className="header__signout-icon"
+              />
             </button>
           ) : (
             /* Sign In */
@@ -121,7 +125,7 @@ function Header({
                 {/* Sign In button when not logged in */}
                 {!isLoggedIn && (
                   <button
-                    className="drawer__signin-btn"
+                    className="header__drawer-signin-btn"
                     onClick={onSignInClick}
                   >
                     Sign In
@@ -131,7 +135,7 @@ function Header({
                 {/* Sign Out button when logged in */}
                 {isLoggedIn && (
                   <button
-                    className="drawer__signout-btn"
+                    className="header__drawer-signout-btn"
                     onClick={onSignOutClick}
                   >
                     Sign Out

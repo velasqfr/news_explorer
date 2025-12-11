@@ -46,10 +46,16 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
     if (!email) {
       setEmailError("Invalid email address");
       hasError = true;
+    } else if (email.length < 8 || email.length > 25) {
+      setEmailError("Email must be 8-25 characters long");
+      hasError = true;
     }
 
     if (!password) {
       setPasswordError("Invalid password");
+      hasError = true;
+    } else if (password.length < 4 || password.length > 30) {
+      setPasswordError("Password must be 4-30 characters long");
       hasError = true;
     }
 
@@ -84,6 +90,8 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           className="modal__input"
           placeholder="Enter email"
           value={email}
+          minLength={8}
+          maxLength={25}
           onChange={(e) => setEmail(e.target.value)}
           autoComplete="username"
           required
@@ -100,6 +108,8 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          minLength={4}
+          maxLength={30}
           autoComplete="current-password"
           required
         />

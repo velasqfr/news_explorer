@@ -37,17 +37,21 @@ const NewsCardList = ({
 
       {noResults ? (
         <div className="news__card-list-no-result">
-          <img src={nothing} alt="no results" className="no__results-icon" />
-          <h3 className="no__results-title"> Nothing Found</h3>
+          <img
+            src={nothing}
+            alt="no results"
+            className="news__card-list__no-results-icon"
+          />
+          <h3 className="news__card-list__no-results-title"> Nothing Found</h3>
 
-          <p className="no__results-text">
+          <p className="news__card-list__no-results-text">
             Sorry, but nothing matched your search terms
           </p>
         </div>
       ) : (
         <>
           <div className="news__card-list">
-            {articlesToDisplay.map((article) => (
+            {articlesToDisplay.map((article, index) => (
               <NewsCard
                 key={article.url || index} // index is the fallback
                 article={article}
@@ -60,7 +64,10 @@ const NewsCardList = ({
 
           {visibleArticles < articles.length && (
             <div className="news__card-list-footer">
-              <button className="show__more-btn" onClick={handleShowMore}>
+              <button
+                className="news__card-list__show-more-btn"
+                onClick={handleShowMore}
+              >
                 Show More
               </button>
             </div>

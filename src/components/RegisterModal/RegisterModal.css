@@ -16,3 +16,27 @@
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+.register__error-email {
+  font-family: Inter;
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+  margin-top: -20px;
+  margin-bottom: 13px;
+}
+
+.register__error-password {
+  font-family: Inter;
+  font-size: 12px;
+  color: #ff0000;
+  margin-top: -20px;
+  font-weight: 400;
+}
+.register__error-username {
+  font-family: Inter;
+  font-size: 12px;
+  color: #ff0000;
+  margin-top: -20px;
+  font-weight: 400;
+}

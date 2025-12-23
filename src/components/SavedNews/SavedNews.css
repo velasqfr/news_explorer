@@ -170,6 +170,7 @@
   border: none;
   cursor: pointer;
   background-color: #ffffff;
+  z-index: 2;
 }
 
 /* Trash Icon */
@@ -177,11 +178,93 @@
   content: url("../../images/trashHover.svg");
 }
 
+/* ============================== TABLET (≤780px) ================================ */
+@media (max-width: 768px) {
+  .saved-news {
+    padding: 40px;
+    margin: 0;
+  }
+
+  /* Info section */
+  .saved-news__info {
+    margin: 0;
+    padding: 32px 40px;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .saved-news__subtitle {
+    font-family: "Roboto Slab", serif;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #1a1b2280;
+  }
+
+  .saved-news__title {
+    font-size: 30px;
+    line-height: 34px;
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .saved-news__keywords {
+    font-size: 14px;
+  }
+
+  /* Cards grid */
+  .saved-news__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    /* grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 32px; */
+  }
+
+  /* Card image */
+  .saved-news__card-img {
+    height: 200px;
+  }
+
+  /* Card content */
+  .saved-news__card-content {
+    padding: 16px;
+  }
+
+  .saved-news__card-title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .saved-news__card-description {
+    font-size: 16px;
+  }
+
+  /* Keyword badge */
+  .saved-news__keyword-badge {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  /* Delete tooltip */
+  .saved-news__card-msg {
+    right: 64px;
+    width: 160px;
+    height: 36px;
+    font-size: 12px;
+  }
+}
+
 /* ============================== MOBILE (≤480px) ================================ */
 
 @media (max-width: 480px) {
   .saved-news {
-    padding: 62px 16px;
+    padding: 62px 10px;
     width: 100%;
     margin: 0 auto;
     max-width: 100%;
@@ -200,26 +283,37 @@
     font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 400;
+    color: #1a1b2280;
+    margin-bottom: 16px;
   }
   .saved-news__title {
     font-family: "Roboto", sans-serif;
-    font-size: 30px;
+    font-size: 24px; /*30*/
     font-weight: 400;
+    line-height: 1.2;
   }
 
   .saved-news__keywords {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 400;
+    color: #1a1b22;
   }
 
   .saved-news__keyword-badge {
     font-family: "Roboto", sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     font-family: 700;
-    top: 40px;
-    left: 40px;
+    top: 20px;
+    left: 20px;
   }
+
+  .saved-news__keywords-highlight {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
   .saved-news__card-content {
     padding: 16px 12px;
     display: flex;
@@ -242,7 +336,18 @@
     width: 100%; /* Ensure cards take up full width */
     max-width: 100%; /* Prevent cards from exceeding the screen */
     margin: 0 auto; /* Center cards */
-    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+
+  .saved-news__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+    padding: 0 16px;
   }
 
   .saved-news__card-img {
@@ -250,9 +355,55 @@
     height: auto; /* Maintain aspect ratio */
   }
 
+  .saved-news__card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .saved-news__card-title {
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: #1a1b22;
+  }
+
+  .saved-news__card-description {
+    font-family: "Roboto Slab", serif;
+
+    font-size: 14px;
+    color: #1a1b22;
+    margin-bottom: 16px;
+  }
+
+  .saved-news__card-source {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    color: #b6bcbf;
+    margin-top: 8px;
+  }
   .saved-news__delete-btn {
-    margin-top: 20px;
-    margin-right: 20px;
+    width: 55px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+
+  .saved-news__card-date {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #b6bcbf;
+    font-weight: 400;
+    margin-bottom: 8px;
   }
 
   .saved-news__card-msg {
@@ -261,5 +412,12 @@
     height: 30px;
     margin-top: 25px;
     margin-right: 20px;
+  }
+
+  .saved-news__empty {
+    text-align: center;
+    color: #1a1b22;
+    font-size: 16px;
+    margin-top: 40px;
   }
 }

@@ -194,15 +194,19 @@ function App() {
                   />
                   <main className="main-content">
                     <Main onSearch={handleSearch} />
-                    <NewsCardList
-                      articles={articles}
-                      isLoading={isLoading}
-                      noResults={noResults}
-                      onSaveArticle={handleSaveArticle}
-                      savedArticles={savedArticles}
-                      isLoggedIn={isLoggedIn}
-                      apiError={apiError}
-                    />
+
+                    {/* CONDITIONAL RENDERING OF "NEWSCARDLIST" */}
+                    {articles.length > 0 || isLoading || noResults ? (
+                      <NewsCardList
+                        articles={articles}
+                        isLoading={isLoading}
+                        noResults={noResults}
+                        onSaveArticle={handleSaveArticle}
+                        savedArticles={savedArticles}
+                        isLoggedIn={isLoggedIn}
+                        apiError={apiError}
+                      />
+                    ) : null}
                     <About />
                   </main>
                   <Footer />

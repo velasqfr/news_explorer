@@ -1,6 +1,7 @@
 .news__card {
   position: relative;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 576px;
   background: #ffffff;
   border-radius: 8px;
@@ -10,7 +11,9 @@
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
+
 .news__card-save-btn {
   position: absolute;
   top: 12px;
@@ -104,28 +107,89 @@
   color: #1a1b22;
   border-radius: 8px;
 }
+
+/* ============================== TABLET (≤768px) ================================ */
+@media (max-width: 768px) {
+  .news__card {
+    max-width: 224px;
+    height: auto;
+  }
+
+  .news__card img {
+    height: 150px;
+  }
+
+  .news__card-save-btn {
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    right: 8px;
+  }
+  .news__card-msg {
+    top: 6px;
+    right: 50px;
+    width: 100px;
+    height: 30px;
+    font-size: 10px;
+    border-radius: 10px;
+  }
+
+  .news__card-date {
+    font-family: "Roboto Slab", Arial, serif;
+    font-size: 16px;
+  }
+
+  .news__card-title {
+    font-family: "Roboto Slab", Arial, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .news__card-description {
+    font-family: "Roboto Slab", Arial, serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    font-weight: 200;
+    letter-spacing: 0px;
+  }
+
+  .news__card-source {
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
 /* ============================== MOBILE (≤480px) ================================ */
 
 @media (max-width: 480px) {
   .news__card {
-    width: 100%;
+    max-width: 100%;
     height: auto;
   }
+}
 
-  .news__card-list {
-    display: block;
-    padding-bottom: 40px;
+/* ============================== TABLET to MOBILE (481px to 637px) ================================ */
+@media (max-width: 637px) and (min-width: 481px) {
+  .saved-news__cards {
+    grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller sizes */
   }
 
-  .news__card-list-footer {
-    padding-bottom: 40px;
+  .saved-news__card-img {
+    height: 250px; /* Adjust card image size */
   }
 
-  .news__card-footer {
-    padding-bottom: 40px;
+  .saved-news__title {
+    font-size: 28px; /* Adjust title size for better readability */
   }
 
-  .news__card-list-title {
-    font-size: 24px;
+  .saved-news__card-title {
+    font-size: 20px; /* Smaller title for smaller screens */
+  }
+
+  .saved-news__card-description {
+    font-size: 14px; /* Adjust description font size */
   }
 }

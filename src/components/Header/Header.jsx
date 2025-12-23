@@ -107,7 +107,7 @@ function Header({
                 {/* Home link */}
                 <Link
                   to="/"
-                  className={`header__nav-home ${!isSavedNewsPage ? "active" : ""}`}
+                  className={`header__nav-link--home ${!isSavedNewsPage ? "active" : ""}`}
                 >
                   Home
                 </Link>

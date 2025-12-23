@@ -82,7 +82,11 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
                 onClick={() => handleDelete(article.url)} // will switch to article.url once API connected
                 aria-label={`Delete ${article.title}`}
               >
-                <img src={trash} alt="trash icon" className="trash__icon" />
+                <img
+                  src={trash}
+                  alt="trash icon"
+                  className="saved__news-trash-icon"
+                />
               </button>
 
               {showRemovedMsg === article.url && (

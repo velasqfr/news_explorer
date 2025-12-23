@@ -21,7 +21,7 @@ const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
     <div className="news__card">
       {urlToImage && <img src={urlToImage} alt={title} />}
       <button
-        className={`save_button ${isSaved ? "active" : ""}`}
+        className={`news__card-save-btn ${isSaved ? "active" : ""}`}
         aria-label={isSaved ? "Remove article" : "Save article"}
         onClick={handleSave}
       ></button>

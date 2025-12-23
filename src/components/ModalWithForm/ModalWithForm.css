@@ -110,9 +110,9 @@
 @media (max-width: 480px) {
   .modal__content {
     width: 100%;
-    max-width: 480px; /* Ensures it fits within mobile screen */
+    max-width: 480px;
     padding: 10px;
-    margin-top: 60px; /* Keep space at top */
+    margin-top: 60px;
     height: calc(100vh - 35px); /* Fill the screen but leave space at the top */
   }
 
@@ -125,11 +125,12 @@
 
   .modal__close {
     position: absolute;
-    top: -50px;
-    left: 420px;
+    top: 10px;
+    left: 10;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 3;
   }
 }

@@ -99,6 +99,7 @@
 
   .saved-news__header .header__nav {
     gap: 10px;
+    color: #2f71e5;
   }
 }
 .saved-news__header .header__nav a.active::after {
@@ -127,7 +128,7 @@
   }
 
   .saved-news__header .header__container {
-    padding: 20px 16px;
+    padding: 16px 16px 8px;
   }
 
   .saved-news__header .header__logo {

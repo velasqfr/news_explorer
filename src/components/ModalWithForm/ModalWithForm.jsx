@@ -18,8 +18,8 @@ function ModalWithForm({
 
       <div className={`modal__content ${className || ""}`}>
         <div className="modal__header">
-          <button className="modal__close" onClick={onClose}>
-            <img src={closeIcon} alt="Close" className="close__button" />
+          <button className="modal__close-btn" onClick={onClose}>
+            <img src={closeIcon} alt="Close" />
           </button>
         </div>
         <h2 className="modal__title"> {title} </h2>

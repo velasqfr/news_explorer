@@ -170,26 +170,3 @@
     height: auto;
   }
 }
-
-/* ============================== TABLET to MOBILE (481px to 637px) ================================ */
-@media (max-width: 637px) and (min-width: 481px) {
-  .saved-news__cards {
-    grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller sizes */
-  }
-
-  .saved-news__card-img {
-    height: 250px; /* Adjust card image size */
-  }
-
-  .saved-news__title {
-    font-size: 28px; /* Adjust title size for better readability */
-  }
-
-  .saved-news__card-title {
-    font-size: 20px; /* Smaller title for smaller screens */
-  }
-
-  .saved-news__card-description {
-    font-size: 14px; /* Adjust description font size */
-  }
-}

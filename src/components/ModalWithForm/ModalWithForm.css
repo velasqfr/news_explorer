@@ -31,11 +31,11 @@
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(214, 92, 92, 0.1);
   z-index: 2; /*On top*/
 }
 
-.modal__close {
+.modal__close-btn {
   position: absolute;
   top: -40px;
   right: -40px;
@@ -123,10 +123,10 @@
     gap: 20px; /* Adds space between form elements */
   }
 
-  .modal__close {
+  .modal__close-btn {
     position: absolute;
-    top: 10px;
-    left: 10;
+    top: -50px;
+    right: -10px;
     background: transparent;
     border: none;
     cursor: pointer;

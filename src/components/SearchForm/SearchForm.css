@@ -73,6 +73,17 @@
   font-size: 16px;
 }
 
+.search__error {
+  font-family: "Roboto", sans-serif;
+  background: #ffffff;
+  color: #ff0000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-weight: 400;
+  position: absolute;
+  bottom: 300px;
+}
+
 /* ============================== MOBILE (≤480px) ================================ */
 @media (max-width: 480px) {
   .search__content {
@@ -126,5 +137,8 @@
     color: white;
     font-size: 18px;
     font-weight: 500;
+  }
+  .search__error {
+    bottom: 150px;
   }
 }

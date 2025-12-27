@@ -113,9 +113,20 @@
 
   @media (max-width: 480px) {
     .news__card-list {
-      padding: 0 5px;
-      display: block;
+      padding: 0 5;
       padding-bottom: 40px;
+    }
+    .news__card {
+      max-width: 100%;
+    }
+
+    .news__card img {
+      height: 196px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .news__card-content {
+      border-radius: 0 0 12px 12px;
     }
 
     .news__card-list-footer {

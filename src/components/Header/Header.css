@@ -76,6 +76,11 @@
   letter-spacing: 0;
 }
 
+.header__sign-in:active {
+  background-color: #2f71e5;
+  color: #ffffff;
+}
+
 /* Hidden on desktop */
 .header__drawer {
   display: none;
@@ -308,15 +313,6 @@
     margin-top: 20px;
     align-self: flex-start;
     align-self: center;
-  }
-  .header__close-btn {
-    display: block;
-    position: absolute;
-    top: 50px;
-    right: 16px; /* Place it inside the container, aligned with the title */
-    background: transparent;
-    border: none;
-    z-index: 400;
   }
 
   /* ========================= Overlay Styling ========================= */

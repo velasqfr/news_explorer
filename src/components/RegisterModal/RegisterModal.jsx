@@ -9,6 +9,8 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [emailUnavailableError, setEmailUnavailableError] = useState("");
+  const [noInfoError, setNoInfoError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
@@ -22,6 +24,8 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       // Reset Errors
       setError("");
       setEmailError("");
+      setNoInfoError("");
+      setEmailUnavailableError("");
       setPasswordError("");
       setUsernameError("");
 
@@ -54,12 +58,14 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     // Reset Errors
     setError("");
     setEmailError("");
+    setNoInfoError("");
+    setEmailUnavailableError("");
     setPasswordError("");
     setUsernameError("");
 
     // Checks if all fields are empty
     if (!email && !password && !username) {
-      setError("Please enter your information");
+      setNoInfoError("Please enter your information");
       return;
     }
 
@@ -67,7 +73,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
 
     // Checks individual fields for missing value
     if (!email) {
-      setEmailError("This email is not available");
+      setEmailError("Email is required");
       hasError = true;
     } else if (email.length < 8 || email.length > 25) {
       setEmailError("Email must be 8-25 characters long");
@@ -96,10 +102,10 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     try {
       const result = await onRegister?.({ email, password, username });
 
-      if (result) {
+      if (result.success) {
         setIsRegistrationSuccess(true); // shows success component
       } else {
-        setError("Registration failed. Please try again.");
+        setEmailUnavailableError(result.message);
       }
     } catch (err) {
       setError("Something went wrong. Please try again");
@@ -194,6 +200,15 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
         </label>
 
         {error && <p className="modal__error-register"> {error}</p>}
+        {emailUnavailableError && (
+          <p className="register__error-unavailable-email">
+            {emailUnavailableError}
+          </p>
+        )}
+
+        {noInfoError && (
+          <p className="register__info-error-email">{noInfoError}</p>
+        )}
 
         <button type="submit" className="modal__submit">
           Sign Up

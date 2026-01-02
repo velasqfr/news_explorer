@@ -12,6 +12,16 @@ export function getUser() {
   return data ? JSON.parse(data) : null;
 }
 
+// Get all registered users
+export function getRegisteredUsers() {
+  return JSON.parse(localStorage.getItem("registeredUsers") || "{}");
+}
+
+// Save all registered users
+export function setRegisteredUsers(users) {
+  localStorage.setItem("registeredUsers", JSON.stringify(users));
+}
+
 // Reads saved articles
 export function getSavedArticles() {
   return JSON.parse(localStorage.getItem("savedArticles") || "[]");

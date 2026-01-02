@@ -72,6 +72,8 @@
   font-size: 16px;
   color: #1a1b22;
   margin-bottom: 16px;
+  display: box;
+  line-clamp: 4;
 }
 
 .news__card-source {
@@ -168,5 +170,9 @@
   .news__card {
     max-width: 100%;
     height: auto;
+  }
+
+  .news__card-description {
+    font-size: 13px;
   }
 }

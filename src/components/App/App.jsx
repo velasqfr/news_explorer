@@ -1,17 +1,18 @@
 // --------------------------------------------------
 // IMPORTS
 // --------------------------------------------------
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   getUser,
   setUser,
   getSavedArticles,
   saveArticleList,
+  getRegisteredUsers,
+  setRegisteredUsers,
 } from "../../utils/localStorage";
 import "./App.css";
 import { searchNews } from "../../utils/api";
-
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNews/SavedNewsHeader";
 import About from "../About/About";
@@ -30,17 +31,20 @@ function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
   const [user, setUserState] = useState(getUser()); // loads saved user
-  const [searchTerm, setSearchTerm] = useState("");
   const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState(getSavedArticles()); // loads saved articles
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
   const [apiError, setApiError] = useState(false);
 
+  useEffect(() => {
+    saveArticleList(savedArticles); // updates saved articles to localstorage
+  }, [savedArticles]);
+
   // --------------------------------------------------
   // MODAL HANDLERS
   // --------------------------------------------------
-  const openLoginFromRegister = () => {
+  const switchToLoginFromRegister = () => {
     setIsRegisterOpen(false);
     setIsLoginOpen(true);
   };
@@ -60,20 +64,43 @@ function App() {
 
   const handleRegisterOpen = () => setIsRegisterOpen(true);
 
-  const handleLogin = ({ email }) => {
-    const newUser = { email };
-    setUserState(newUser); // state
+  const handleLogin = ({ email, password }) => {
+    const registeredUsers = getRegisteredUsers(); // Get all registered users
+    const existingUser = registeredUsers[email];
+
+    if (!existingUser || existingUser.password !== password) {
+      return false; // wrong email or password
+    }
+
+    const newUser = { email, username: existingUser.username };
+    setUserState(newUser);
     setUser(newUser); // localStorage
     setIsLoggedIn(true);
     closeAllModals();
+
     return true;
   };
 
-  const handleRegister = ({ password, email, username }) => {
-    const newUser = { email, username, password };
-    setUserState(newUser); // saves the user temporarily
-    setUser(newUser); // saves to localStorage
-    return true;
+  const handleRegister = ({ email, password, username }) => {
+    const registeredUsers = getRegisteredUsers(); // Get the current list of registered users
+
+    // Checks if the email already exists
+    if (registeredUsers[email]) {
+      return { success: false, message: "This email is not available" };
+    }
+    // Add the new user to the list
+    registeredUsers[email] = { email, username, password };
+    setRegisteredUsers(registeredUsers); // save updated users list to localStorage
+
+    // Proceed wth login after registering
+    // **Do NOT log in automatically**
+    // const newUser = { email, username };
+    // setUserState(newUser);
+    // setUser(newUser);
+    // setIsLoggedIn(true);
+    // closeAllModals();
+
+    return { success: true };
   };
 
   const handleLogout = () => {
@@ -153,9 +180,12 @@ function App() {
       setArticles(results); // Updates state for NewsCardList
     } catch (error) {
       console.error("Search error", error);
+
       setApiError(true); // Show API eror msgs
-      setNoResults(false); // Hides "Nothing Found"
       setArticles([]); // Clears previous results
+      setNoResults(false); // Hides "Nothing Found"
+      // shows a user-friendly message to users:
+      alert("Sorry, there was an error fetching news. Please try again later.");
     } finally {
       setIsLoading(false); // hide preloader
     }
@@ -170,14 +200,15 @@ function App() {
         {/*  Conditionally render content based on apiError*/}
         {apiError ? (
           <div className="api__error-msg">
+            {" "}
             <p>
+              {" "}
               Sorry, something went wrong during the request. Please try again
-              later
-            </p>
+              later{" "}
+            </p>{" "}
           </div>
         ) : (
           // Otherwise, render the routes and page content
-
           <Routes>
             {/* HOME PAGE */}
             <Route
@@ -196,7 +227,7 @@ function App() {
                     <Main onSearch={handleSearch} />
 
                     {/* CONDITIONAL RENDERING OF "NEWSCARDLIST" */}
-                    {articles.length > 0 || isLoading || noResults ? (
+                    {(articles.length > 0 || isLoading || noResults) && (
                       <NewsCardList
                         articles={articles}
                         isLoading={isLoading}
@@ -206,7 +237,7 @@ function App() {
                         isLoggedIn={isLoggedIn}
                         apiError={apiError}
                       />
-                    ) : null}
+                    )}
                     <About />
                   </main>
                   <Footer />
@@ -236,7 +267,6 @@ function App() {
             />
           </Routes>
         )}
-
         {/* MODALS */}
         <LoginModal
           isOpen={isLoginOpen}
@@ -244,11 +274,10 @@ function App() {
           onSignUpClick={handleRegisterOpen}
           onLogin={handleLogin}
         />
-
         <RegisterModal
           isOpen={isRegisterOpen}
           onClose={closeAllModals}
-          onSignInClick={openLoginFromRegister}
+          onSignInClick={switchToLoginFromRegister}
           onRegister={handleRegister}
         />
       </div>

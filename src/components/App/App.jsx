@@ -32,14 +32,18 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
   const [user, setUserState] = useState(getUser()); // loads saved user
   const [articles, setArticles] = useState([]);
-  const [savedArticles, setSavedArticles] = useState(getSavedArticles()); // loads saved articles
+  const [savedArticles, setSavedArticles] = useState(
+    getSavedArticles(user?.email || "")
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
   const [apiError, setApiError] = useState(false);
 
   useEffect(() => {
-    saveArticleList(savedArticles); // updates saved articles to localstorage
-  }, [savedArticles]);
+    if (user?.email) {
+      saveArticleList(user.email, savedArticles); // updates saved articles to localstorage
+    }
+  }, [savedArticles, user?.email]);
 
   // --------------------------------------------------
   // MODAL HANDLERS
@@ -76,8 +80,11 @@ function App() {
     setUserState(newUser);
     setUser(newUser); // localStorage
     setIsLoggedIn(true);
-    closeAllModals();
 
+    // Load this user’s saved articles
+    setSavedArticles(getSavedArticles(email));
+
+    closeAllModals();
     return true;
   };
 
@@ -107,6 +114,7 @@ function App() {
     setUserState(null);
     setIsLoggedIn(false);
     setUser(null); // clears user data from localStorage
+    setSavedArticles([]); // clear saved articles in state
   };
 
   // --------------------------------------------------
@@ -142,7 +150,6 @@ function App() {
         // Add new article w/ keyword
         updatedArticles = [...prev, articleWithKeyword];
       }
-      saveArticleList(updatedArticles); // updates localStorage
       return updatedArticles;
     });
   };

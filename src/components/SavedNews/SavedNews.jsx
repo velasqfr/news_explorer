@@ -67,8 +67,8 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
         <p className="saved-news__empty">You have no saved articles</p>
       ) : (
         <div className="saved-news__cards">
-          {savedArticles.map((article) => (
-            <div key={article.url} className="saved-news__card">
+          {savedArticles.map((article, index) => (
+            <div key={`${article.url}_${index}`} className="saved-news__card">
               {article.urlToImage && (
                 <img
                   src={article.urlToImage}

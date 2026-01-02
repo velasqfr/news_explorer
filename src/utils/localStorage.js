@@ -22,11 +22,14 @@ export function setRegisteredUsers(users) {
   localStorage.setItem("registeredUsers", JSON.stringify(users));
 }
 
-// Reads saved articles
-export function getSavedArticles() {
-  return JSON.parse(localStorage.getItem("savedArticles") || "[]");
+// Get saved articles for a specific user
+export function getSavedArticles(userEmail) {
+  if (!userEmail) return [];
+  const data = localStorage.getItem(`savedArticles_${userEmail}`);
+  return data ? JSON.parse(data) : [];
 }
 // Save articles array into localStorage
-export function saveArticleList(articles) {
-  localStorage.setItem("savedArticles", JSON.stringify(articles));
+export function saveArticleList(userEmail, articles) {
+  if (!userEmail) return;
+  localStorage.setItem(`savedArticles_${userEmail}`, JSON.stringify(articles));
 }

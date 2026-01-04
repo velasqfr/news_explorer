@@ -16,14 +16,14 @@ function About() {
               and management.
             </p>
             <p>
-              Over the past few months, I've gained hands-on experience in both
-              frontend and backend development by creating and launching web
-              applications through real-world projects. As an emerging web
-              developer, I'm passionate about building clean, maintainable, and
-              user-friendly applications to address clients' needs and support
-              scalable, profitable growth. My goal is to deliver high-quality
-              solutions and collaborate with teams to turn ideas into actionable
-              results.
+              Over the past few months, I&apos;ve gained hands-on experience in
+              both frontend and backend development by creating and launching
+              web applications through real-world projects. As an emerging web
+              developer, I&apos;m passionate about building clean, maintainable,
+              and user-friendly applications to address clients&apos; needs and
+              support scalable, profitable growth. My goal is to deliver
+              high-quality solutions and collaborate with teams to turn ideas
+              into actionable results.
             </p>
             <p>
               My specialties include frontend development, working with HTML,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./NewsCard.css";
 
 const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {

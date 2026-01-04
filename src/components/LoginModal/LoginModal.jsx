@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
@@ -61,6 +61,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
 
     if (hasError) return;
 
+    // If no error, proceed to the login function (onLogin)
     try {
       const success = await onLogin({ email, password });
       if (!success) {

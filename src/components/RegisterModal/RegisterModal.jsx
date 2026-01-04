@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 import RegistrationSuccess from "../RegistrastionSucess/RegistrationSuccess";
@@ -31,7 +31,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
 
       setIsRegistrationSuccess(false);
     }
-  }, [isOpen]);
+  }, [isOpen, isRegistrationSuccess]);
 
   // Escape Key Listener
   useEffect(() => {
@@ -50,7 +50,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     return () => {
       document.removeEventListener("keydown", handleEsc);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, isRegistrationSuccess]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

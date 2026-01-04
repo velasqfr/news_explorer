@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SavedNews.css";
 import trash from "../../images/trash.svg";
 

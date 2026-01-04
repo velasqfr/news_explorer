@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SearchForm.css";
 
 function SearchForm({ onSearch }) {
@@ -19,7 +19,7 @@ function SearchForm({ onSearch }) {
 
   return (
     <section className="search__content">
-      <h2 className="search__title">What's going on in the World?</h2>
+      <h2 className="search__title">What&apos;s going on in the World?</h2>
       <p className="search__subtitle">
         Find the latest news on any topic and save them in your personal
         account.

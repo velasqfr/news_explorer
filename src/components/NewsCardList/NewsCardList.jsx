@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import "./NewsCardList.css";

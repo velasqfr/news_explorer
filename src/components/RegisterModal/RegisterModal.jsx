@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
-import RegistrationSuccess from "../RegistrastionSucess/RegistrationSuccess";
+import RegistrationSuccess from "../RegistrationSuccess/RegistrationSuccess";
 
 function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const [email, setEmail] = useState("");
@@ -28,10 +28,8 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       setEmailUnavailableError("");
       setPasswordError("");
       setUsernameError("");
-
-      setIsRegistrationSuccess(false);
     }
-  }, [isOpen, isRegistrationSuccess]);
+  }, [isOpen]);
 
   // Escape Key Listener
   useEffect(() => {

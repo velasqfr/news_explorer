@@ -18,7 +18,7 @@ const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
   };
 
   return (
-    <div className="news__card">
+    <article className="news__card">
       {urlToImage && <img src={urlToImage} alt={title} />}
       <button
         className={`news__card-save-btn ${isSaved ? "active" : ""}`}
@@ -45,7 +45,7 @@ const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
           Read more
         </a>
       </div>
-    </div>
+    </article>
   );
 };
 

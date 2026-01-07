@@ -22,7 +22,7 @@ export function setRegisteredUsers(users) {
   localStorage.setItem("registeredUsers", JSON.stringify(users));
 }
 
-// Get saved articles for a specific user
+// Get saved articles for a specific user - allows own separate list of articles
 export function getSavedArticles(userEmail) {
   if (!userEmail) return [];
   const data = localStorage.getItem(`savedArticles_${userEmail}`);

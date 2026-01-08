@@ -58,6 +58,7 @@
   font-size: 16px;
   text-decoration: none;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .footer__social-icons a:hover {
@@ -65,6 +66,17 @@
 }
 .footer__icon {
   transition: opacity 0.3s ease;
+}
+.footer__social-icons a img {
+  transition:
+    filter 0.3s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+.footer__social-icons a:hover img {
+  filter: brightness(3); /* darkens icon */
+  transform: scale(1.7); /* subtle zoom */
 }
 
 /* ============== MEDIA QUERIES ============== */

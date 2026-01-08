@@ -21,6 +21,12 @@
   align-items: center;
 }
 
+.saved-news__header .header__nav a:hover {
+  font-weight: 500px;
+  color: #646cff;
+  text-decoration: underline;
+}
+
 .saved-news__header .header__nav a {
   font-family: "Roboto Slab", serif;
   font-weight: 500;

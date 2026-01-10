@@ -70,12 +70,19 @@
   align-items: center;
   justify-content: center;
 }
+.saved-news__header .header__sign-out:hover {
+  transform: scale(1.1);
+}
 
 .header .header__sign-out {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
+}
+
+.header .header__sign-out:hover {
+  transform: scale(1.1);
 }
 
 .header__hamburger {

@@ -11,6 +11,7 @@ const NewsCardList = ({
   isLoggedIn,
   isLoading,
   noResults,
+  currentSearchTerm,
 }) => {
   const articlesPerPage = 3;
   const [visibleArticles, setVisibleArticles] = useState(articlesPerPage);
@@ -55,7 +56,7 @@ const NewsCardList = ({
               <NewsCard
                 key={article.url || index} // index is the fallback
                 article={article}
-                onSave={onSaveArticle}
+                onSave={() => onSaveArticle(article, currentSearchTerm)}
                 isLoggedIn={isLoggedIn}
                 savedArticles={savedArticles}
               />

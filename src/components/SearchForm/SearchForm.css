@@ -75,11 +75,11 @@
 
 .search__error {
   font-family: "Roboto", sans-serif;
-  background: #ffffff;
   color: #ff0000;
+  border: 5px solid #ffffff;
   border-radius: 8px;
   background-color: #ffffff;
-  font-weight: 400;
+  font-weight: 500;
   position: absolute;
   bottom: 300px;
 }

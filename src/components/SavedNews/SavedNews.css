@@ -79,6 +79,8 @@
 
 /* Styling for each card */
 .saved-news__card {
+  width: 100%;
+  max-width: 400px;
   position: relative;
   background: #f5f6f7;
   border-radius: 16px;
@@ -106,6 +108,7 @@
 /* Card Image */
 .saved-news__card-img {
   width: 100%;
+  width: 400px;
   height: 272px;
   object-fit: cover;
   border-radius: 16px 16px 0 0; /* top corners only */
@@ -176,6 +179,11 @@
 /* Trash Icon */
 .saved-news__delete-btn:hover .trash__icon {
   content: url("../../images/trashHover.svg");
+}
+
+.saved-news__undo {
+  position: relative;
+  bottom: 500px;
 }
 
 /* ============================== TABLET (≤780px) ================================ */
@@ -366,7 +374,6 @@
 
   .saved-news__card-description {
     font-family: "Roboto Slab", serif;
-
     font-size: 14px;
     color: #1a1b22;
     margin-bottom: 16px;

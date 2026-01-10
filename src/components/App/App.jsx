@@ -31,6 +31,7 @@ function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
   const [user, setUserState] = useState(getUser()); // loads saved user
+  const [currentSearchTerm, setCurrentSearchTerm] = useState("");
   const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState(
     getSavedArticles(user?.email || "")
@@ -135,22 +136,18 @@ function App() {
   // --------------------------------------------------
   // SAVING & DELETING ARTICLES
   // --------------------------------------------------
-  const handleSaveArticle = (article) => {
-    const keyword = extractKeyword(article.title); // Extracts keyword from title
+  const handleSaveArticle = (article, searchTerm) => {
+    const keyword = searchTerm || extractKeyword(article.title); // Extracts search word
     const articleWithKeyword = { ...article, keyword }; // For keyword badge
 
     setSavedArticles((prev) => {
       const alreadySaved = prev.find((a) => a.url === article.url);
-      let updatedArticles;
-
       if (alreadySaved) {
         // remove if already saved - "unsaving"
-        updatedArticles = prev.filter((a) => a.url !== article.url);
+        return prev.filter((a) => a.url !== article.url);
       } else {
-        // Add new article w/ keyword
-        updatedArticles = [...prev, articleWithKeyword];
+        return [...prev, articleWithKeyword];
       }
-      return updatedArticles;
     });
   };
 
@@ -167,6 +164,7 @@ function App() {
   // --------------------------------------------------
 
   const handleSearch = async (term) => {
+    setCurrentSearchTerm(term);
     if (!term.trim()) {
       setArticles([]); // clears previous results
       setNoResults(false); //reset "Nothing Found"
@@ -243,6 +241,7 @@ function App() {
                         savedArticles={savedArticles}
                         isLoggedIn={isLoggedIn}
                         apiError={apiError}
+                        currentSearchTerm={currentSearchTerm}
                       />
                     )}
                     <About />

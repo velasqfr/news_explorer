@@ -35,10 +35,8 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
   const handleDelete = (url) => {
     if (showRemovedMsg === url) {
       onDeleteArticle(url);
-      setShowRemovedMsg(null);
-    } else {
-      setShowRemovedMsg(url);
 
+      setShowRemovedMsg(url);
       setTimeout(() => {
         setShowRemovedMsg((prev) => (prev === url ? null : prev));
       }, 2000);
@@ -81,6 +79,8 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
                 className="saved-news__delete-btn"
                 onClick={() => handleDelete(article.url)} // will switch to article.url once API connected
                 aria-label={`Delete ${article.title}`}
+                onMouseEnter={() => setShowRemovedMsg(article.url)}
+                onMouseLeave={() => setShowRemovedMsg(null)}
               >
                 <img
                   src={trash}
@@ -90,7 +90,7 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
               </button>
 
               {showRemovedMsg === article.url && (
-                <p className="saved-news__card-msg">Remove from saved</p>
+                <span className="saved-news__card-msg">Remove from saved</span>
               )}
 
               {article.keyword && (

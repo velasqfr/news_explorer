@@ -69,6 +69,10 @@ npm run dev
 
 Visit http://localhost:4000/ to test out the app 💻
 
+## Live Demo
+
+Check out the live version of News Explorer [here](https://velasqfr.github.io/news_explorer/).
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

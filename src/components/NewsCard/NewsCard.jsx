@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./NewsCard.css";
+import globalnews from "../../images/globalnews.svg";
 
 const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
   const { title, description, url, urlToImage, publishedAt, source } = article;
@@ -19,7 +20,14 @@ const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
 
   return (
     <article className="news__card">
-      {urlToImage && <img src={urlToImage} alt={title} />}
+      <img
+        src={urlToImage || globalnews}
+        alt={title}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = globalnews;
+        }}
+      />
       <button
         className={`news__card-save-btn ${isSaved ? "active" : ""}`}
         aria-label={isSaved ? "Remove article" : "Save article"}

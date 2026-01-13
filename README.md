@@ -1,12 +1,12 @@
 📰 News Explorer 🌍
 
-- News Explorer is a React-based single-page application that allows users to search for news articles via a third-party API and manage a personalized list of saved articles. The application implements client-side routing, authentication, news functionality, and persistent article storage using the browser's localStorage.
+- News Explorer is a React-based single-page application that allows users to search for news articles via a third-party API and manage a personalized list of saved articles. The application implements client-side routing, authentication, news functionality, and persistent article storage using the browser localStorage.
 
 🧩 Project's Technical Overview 🧠
 
 - This project demonstrates frontend application architecture using React functional components, hooks, and React Router.
 - It handles authentication state, session persistence, API-driven data fetching, and per-user data storage.
-- User state, registered accounts, and saved articles are stored locally, enabling session continuity and user-specific data seperation.
+- User state, registered accounts, and saved articles are stored locally, enabling session continuity and user-specific data separation.
 
 Features:
 
@@ -22,7 +22,7 @@ Features:
   - Conditional header rendering based on route and auth state
 
 - News Search
-  - Keyword-based article search visit an external news API
+  - Keyword-based article search via an external news API
   - Asynchronous API requests with loading indicators
   - Graceful handling of empty results and request failures
   - Search term retention for contextual article saving
@@ -37,43 +37,17 @@ Features:
 - UI & State Management
   - Centralized state management using React Hooks
   - Conditional rendering for loaders, errors, and empty states
-  - Full responsive layout for desktop and mobile devices.
+  - Fully responsive layout for desktop and mobile devices.
 
 Tech Stack ⚙️
 
 - Frontend: React, JavaScript(ES6+), HTML5, CSS3
 - Routing: React Router
 - State Management: React Hooks (useState, useEffect)
-- Persistence: Brower localStorage
-- API Integration: RESTful third-party news API,
+- Persistence: Browser localStorage
+- API Integration: RESTful third-party news API
 - Build Tools: React + Vite
 - Version Control: GitHub
-
-Project Structure 🪜
-
-src/
-├── components/
-│ ├── App
-│ ├── Header
-│ ├── Main
-│ ├── SearchForm
-│ ├── NewsCard
-│ ├── NewsCardList
-│ ├── SavedNews
-│ ├── LoginModal
-│ ├── RegisterModal
-│ ├── ModalWithForm
-│ ├── Preloader
-│ └── RegistrationSuccess
-├── utils/
-│ ├── api.js
-│ ├── auth.js
-│ ├── localStorage.js
-│ └── mockArticles.js
-├── assets/
-├── images/
-├── main.jsx
-└── index.css
 
 Installation and Setup 🛠️
 
@@ -85,7 +59,7 @@ git clone https://github.com/velasqfr/news_explorer.git
 
 cd news_explorer
 
-3. Install Independencies:
+3. Install Dependencies:
 
 npm install
 
@@ -93,7 +67,7 @@ npm install
 
 npm run dev
 
-Viait http://localhost:4000/ to test out the app 💻
+Visit http://localhost:4000/ to test out the app 💻
 
 # React + Vite
 

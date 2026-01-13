@@ -26,6 +26,7 @@
   border-radius: 50%;
   object-fit: cover;
   opacity: 1;
+  border: 2px solid #000000;
 }
 
 .about__section {

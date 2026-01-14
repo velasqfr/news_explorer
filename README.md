@@ -1,20 +1,21 @@
-📰 News Explorer 🌍
+## 📰 News Explorer 🌍
 
 - News Explorer is a React-based single-page application that allows users to search for news articles via a third-party API and manage a personalized list of saved articles. The application implements client-side routing, authentication, news functionality, and persistent article storage using the browser localStorage.
 
-🧩 Project's Technical Overview 🧠
+## 🧩 Project's Technical Overview 🧠
 
 - This project demonstrates frontend application architecture using React functional components, hooks, and React Router.
 - It handles authentication state, session persistence, API-driven data fetching, and per-user data storage.
 - User state, registered accounts, and saved articles are stored locally, enabling session continuity and user-specific data separation.
 
-Features:
+## Features:
 
-- Authentication
-  - Client-side login and registration flow
-  - Credential validation using locally stored user data
-  - Persistent login state across sessions
-  - Modal-based authentication UI
+Authentication
+
+- Client-side login and registration flow
+- Credential validation using locally stored user data
+- Persistent login state across sessions
+- Modal-based authentication UI
 
 - Routing
   - / - Home Page for searching and browsing news
@@ -39,7 +40,7 @@ Features:
   - Conditional rendering for loaders, errors, and empty states
   - Fully responsive layout for desktop and mobile devices.
 
-Tech Stack ⚙️
+## Tech Stack ⚙️
 
 - Frontend: React, JavaScript(ES6+), HTML5, CSS3
 - Routing: React Router
@@ -49,7 +50,7 @@ Tech Stack ⚙️
 - Build Tools: React + Vite
 - Version Control: GitHub
 
-Installation and Setup 🛠️
+## Installation and Setup 🛠️
 
 1. Clone the repository:
 

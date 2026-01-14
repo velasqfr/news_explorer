@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 import githubIcon from "../../images/github.svg";
 import linkedIcon from "../../images/linkedIn.svg";
 
@@ -11,7 +12,7 @@ function Footer() {
         </p>
         <div className="footer__right-group">
           <nav className="footer__nav">
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
             <a href="https://tripleten.com/">Tripleten</a>
           </nav>
           <div className="footer__social-icons">

@@ -200,94 +200,92 @@ function App() {
   // RENDER
   // --------------------------------------------------
   return (
-    <Router>
-      <div className="app">
-        {/*  Conditionally render content based on apiError*/}
-        {apiError ? (
-          <div className="api__error-msg">
+    <div className="app">
+      {/*  Conditionally render content based on apiError*/}
+      {apiError ? (
+        <div className="api__error-msg">
+          {" "}
+          <p>
             {" "}
-            <p>
-              {" "}
-              Sorry, something went wrong during the request. Please try again
-              later{" "}
-            </p>{" "}
-          </div>
-        ) : (
-          // Otherwise, render the routes and page content
-          <Routes>
-            {/* HOME PAGE */}
-            <Route
-              path="/"
-              element={
-                <>
-                  <Header
-                    onSignInClick={handleLoginOpen}
-                    isLoggedIn={isLoggedIn}
-                    onLogout={handleLogout}
-                    onSignOutClick={handleLogout}
-                    currentUser={user}
-                    isSavedNewsPage={false}
-                  />
-                  <main className="main-content">
-                    <Main onSearch={handleSearch} />
+            Sorry, something went wrong during the request. Please try again
+            later{" "}
+          </p>{" "}
+        </div>
+      ) : (
+        // Otherwise, render the routes and page content
+        <Routes>
+          {/* HOME PAGE */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Header
+                  onSignInClick={handleLoginOpen}
+                  isLoggedIn={isLoggedIn}
+                  onLogout={handleLogout}
+                  onSignOutClick={handleLogout}
+                  currentUser={user}
+                  isSavedNewsPage={false}
+                />
+                <main className="main-content">
+                  <Main onSearch={handleSearch} />
 
-                    {/* CONDITIONAL RENDERING OF "NEWSCARDLIST" */}
-                    {(articles.length > 0 || isLoading || noResults) && (
-                      <NewsCardList
-                        articles={articles}
-                        isLoading={isLoading}
-                        noResults={noResults}
-                        onSaveArticle={handleSaveArticle}
-                        savedArticles={savedArticles}
-                        isLoggedIn={isLoggedIn}
-                        apiError={apiError}
-                        currentSearchTerm={currentSearchTerm}
-                      />
-                    )}
-                    <About />
-                  </main>
-                  <Footer />
-                </>
-              }
-            />
-
-            {/* SAVED NEWS PAGE */}
-            <Route
-              path="/saved-news"
-              element={
-                <>
-                  <SavedNewsHeader
-                    onSignOutClick={handleLogout}
-                    currentUser={user}
-                  />
-                  <main className="main-content">
-                    <SavedNews
-                      currentUser={user}
+                  {/* CONDITIONAL RENDERING OF "NEWSCARDLIST" */}
+                  {(articles.length > 0 || isLoading || noResults) && (
+                    <NewsCardList
+                      articles={articles}
+                      isLoading={isLoading}
+                      noResults={noResults}
+                      onSaveArticle={handleSaveArticle}
                       savedArticles={savedArticles}
-                      onDeleteArticle={handleDeleteArticle}
+                      isLoggedIn={isLoggedIn}
+                      apiError={apiError}
+                      currentSearchTerm={currentSearchTerm}
                     />
-                  </main>
-                  <Footer />
-                </>
-              }
-            />
-          </Routes>
-        )}
-        {/* MODALS */}
-        <LoginModal
-          isOpen={isLoginOpen}
-          onClose={closeAllModals}
-          onSignUpClick={handleRegisterOpen}
-          onLogin={handleLogin}
-        />
-        <RegisterModal
-          isOpen={isRegisterOpen}
-          onClose={closeAllModals}
-          onSignInClick={switchToLoginFromRegister}
-          onRegister={handleRegister}
-        />
-      </div>
-    </Router>
+                  )}
+                  <About />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+
+          {/* SAVED NEWS PAGE */}
+          <Route
+            path="/saved-news"
+            element={
+              <>
+                <SavedNewsHeader
+                  onSignOutClick={handleLogout}
+                  currentUser={user}
+                />
+                <main className="main-content">
+                  <SavedNews
+                    currentUser={user}
+                    savedArticles={savedArticles}
+                    onDeleteArticle={handleDeleteArticle}
+                  />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
+      )}
+      {/* MODALS */}
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={closeAllModals}
+        onSignUpClick={handleRegisterOpen}
+        onLogin={handleLogin}
+      />
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={closeAllModals}
+        onSignInClick={switchToLoginFromRegister}
+        onRegister={handleRegister}
+      />
+    </div>
   );
 }
 

@@ -12,7 +12,12 @@ function Footer() {
         </p>
         <div className="footer__right-group">
           <nav className="footer__nav">
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Home
+            </Link>
             <a href="https://tripleten.com/">Tripleten</a>
           </nav>
           <div className="footer__social-icons">

@@ -27,12 +27,15 @@
   width: 200px;
   margin: 0;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
 .header__menu {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .header__nav a {
@@ -100,7 +103,12 @@
 .header.header__logged-in .header__menu {
   display: flex;
   align-items: center;
-  gap: 5px; /* space between nav and buttons */
+  gap: 40px; /* space between nav and buttons */
+}
+.header.header__logged-in .header__nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .header.header__logged-in .header__nav a {
@@ -124,10 +132,6 @@
   bottom: -24px;
 }
 
-.header.header__logged-in .header__nav a:first-child {
-  margin-right: 64px; /* space between Home and Saved Articles */
-}
-
 .header.header__logged-in .header__sign-out {
   display: flex;
   align-items: center;
@@ -144,7 +148,6 @@
   background: transparent;
   color: #ffffff;
   cursor: pointer;
-  margin-left: 64px; /* pushes sign-out button to the right */
 }
 
 /* ================================ MEDIA QUERIES ================================== */
@@ -153,11 +156,8 @@
 @media (max-width: 768px) {
   .header__container {
     max-width: 100%; /* Prevent overflow */
-    padding: 20px; /* Adjust padding to fit */
+    padding: 20px 16px; /* Adjust padding to fit */
     box-sizing: border-box; /* Keep padding as on desktop */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   /* Title (NewsExplorer) remains the same as desktop */
@@ -168,9 +168,11 @@
   }
 
   .header__menu {
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: flex-start;
-    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    min-width: 0;
   }
 
   /* Navigation links are displayed in the same way as on desktop */
@@ -188,8 +190,10 @@
     font-weight: 500;
     font-size: 18px;
     position: relative;
-    margin-right: 20px;
-    margin-left: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .header__nav a:last-child {
@@ -232,6 +236,9 @@
 
   /* Ensure the drawer and hamburger are hidden on tablet */
   .header__hamburger {
+    display: block;
+    background: transparent;
+    border: none;
     margin-left: auto;
     z-index: 300;
   }
@@ -239,18 +246,32 @@
   .header__drawer {
     display: none;
   }
+
+  .header.header__logged-in .header__nav {
+    gap: 12px;
+  }
+
+  .header__sign-in,
+  .header.header__logged-in .header__sign-out {
+    flex-shrink: 0;
+  }
+
+  .header__nav a {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .header__sign-in,
+  .header__sign-out {
+    flex-shrink: 0;
+    min-width: 0;
+  }
 }
 
 /* ============================== MOBILE (≤480px) ================================ */
 @media (max-width: 480px) {
-  .header__sign-in {
-    display: none;
-  }
-
-  .header.header__logged-in .header__sign-out {
-    display: none; /* Hide Sign Out in mobile */
-  }
-
+  .header__sign-in,
+  .header.header__logged-in .header__sign-out,
   .header__nav a {
     display: none;
   }
@@ -264,9 +285,6 @@
     margin: 0;
     width: 100%;
   }
-  .header__container--open {
-    background-color: #1a1b22; /* Drawer background color */
-  }
 
   .header__hamburger {
     display: block;
@@ -275,23 +293,11 @@
     margin-left: 16px;
     z-index: 300;
   }
-  .header__hamburger:focus {
-    outline: none; /* Remove outline when focused */
-  }
-
-  .header__nav-home.active {
-    font-family: "Roboto Slab", serif;
-    color: #ffffff;
-    margin-left: -15px;
-    font-weight: 500;
-    font-size: 18px;
-  }
 
   .header__drawer {
-    width: 100%;
     display: none;
     position: absolute;
-    top: 56px; /* so logo + X stay above drawer */
+    top: 56px;
     left: 0;
     width: 100%;
     background-color: #1a1b22;
@@ -316,7 +322,6 @@
     background: transparent;
     color: #fff;
     margin-top: 20px;
-    align-self: flex-start;
     align-self: center;
   }
 

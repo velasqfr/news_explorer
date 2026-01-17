@@ -186,6 +186,16 @@
   bottom: 500px;
 }
 
+.saved-news__card-link {
+  color: #b6bcbf;
+  font-weight: 500;
+}
+
+.saved-news__card-link:hover {
+  cursor: pointer;
+  color: #646cff;
+  text-decoration: underline;
+}
 /* ============================== TABLET (≤780px) ================================ */
 @media (max-width: 768px) {
   .saved-news {

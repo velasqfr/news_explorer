@@ -87,6 +87,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
         Email
         <input
           type="email"
+          id="login-email"
           name="email"
           className="modal__input"
           placeholder="Enter email"
@@ -104,6 +105,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
         Password
         <input
           type="password"
+          id="login-password"
           name="password"
           className="modal__input"
           placeholder="Enter password"

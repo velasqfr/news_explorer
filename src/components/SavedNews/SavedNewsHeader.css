@@ -22,7 +22,7 @@
 }
 
 .saved-news__header .header__nav a:hover {
-  font-weight: 500px;
+  font-weight: 500;
   color: #646cff;
   text-decoration: underline;
 }
@@ -155,6 +155,11 @@
   .savednews__drawer .header__nav-home {
     color: #1a1b22;
     cursor: pointer;
+  }
+
+  .savednews__drawer .header__nav-home:hover {
+    color: #646cff;
+    text-decoration: underline;
   }
 
   .saved-news__header .header__sign-out {

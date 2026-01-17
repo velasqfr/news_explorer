@@ -2,7 +2,7 @@
 // IMPORTS
 // --------------------------------------------------
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {
   getUser,
   setUser,
@@ -154,7 +154,6 @@ function App() {
   const handleDeleteArticle = (url) => {
     setSavedArticles((prev) => {
       const updatedArticles = prev.filter((article) => article.url !== url);
-      saveArticleList(updatedArticles); // updates localStorage
       return updatedArticles;
     });
   };

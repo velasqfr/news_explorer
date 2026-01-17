@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 400px;
-  height: 576px;
+  min-height: 576px;
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -86,10 +86,11 @@
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #b6bcbf;
+  margin-top: auto;
 }
 
 .news__card a {
-  color: #2f71e5;
+  color: #b6bcbf;
   text-decoration: none;
   font-weight: 600;
   margin-top: auto;

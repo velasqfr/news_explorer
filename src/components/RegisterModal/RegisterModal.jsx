@@ -152,6 +152,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           Email
           <input
             type="email"
+            id="register-email"
             name="email"
             className="modal__input"
             placeholder="Enter email"
@@ -167,6 +168,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           Password
           <input
             type="password"
+            id="register-password"
             name="password"
             className="modal__input"
             placeholder="Enter Password"
@@ -184,6 +186,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           Username
           <input
             type="text"
+            id="register-username"
             name="username"
             className="modal__input"
             placeholder="Enter Username"

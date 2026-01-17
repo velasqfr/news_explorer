@@ -28,6 +28,7 @@ function SearchForm({ onSearch }) {
       <form className="search__form" onSubmit={handleSubmit}>
         <input
           type="text"
+          id="search-topic"
           placeholder="Enter topic"
           className="search__input"
           value={input}

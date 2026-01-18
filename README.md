@@ -74,6 +74,11 @@ Visit http://localhost:4000/ to test out the app 💻
 
 Check out the live version of News Explorer [here](https://velasqfr.github.io/news_explorer/).
 
+## Project Pitch Video
+
+Check out [this video](https://drive.google.com/file/d/1Y4v2-noWpr4H-2RVno92oAWSoPT7wGk8/view?usp=sharing), where I describe my
+project and some challenges I faced while building it.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

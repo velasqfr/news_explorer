@@ -2,7 +2,7 @@
 // IMPORTS
 // --------------------------------------------------
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {
   getUser,
   setUser,
@@ -34,7 +34,7 @@ function App() {
   const [currentSearchTerm, setCurrentSearchTerm] = useState("");
   const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState(
-    getSavedArticles(user?.email || "")
+    getSavedArticles(user?.email || ""),
   );
   const [isLoading, setIsLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
@@ -253,20 +253,24 @@ function App() {
           <Route
             path="/saved-news"
             element={
-              <>
-                <SavedNewsHeader
-                  onSignOutClick={handleLogout}
-                  currentUser={user}
-                />
-                <main className="main-content">
-                  <SavedNews
+              isLoggedIn ? (
+                <>
+                  <SavedNewsHeader
+                    onSignOutClick={handleLogout}
                     currentUser={user}
-                    savedArticles={savedArticles}
-                    onDeleteArticle={handleDeleteArticle}
                   />
-                </main>
-                <Footer />
-              </>
+                  <main className="main-content">
+                    <SavedNews
+                      currentUser={user}
+                      savedArticles={savedArticles}
+                      onDeleteArticle={handleDeleteArticle}
+                    />
+                  </main>
+                  <Footer />
+                </>
+              ) : (
+                <Navigate to="/" replace />
+              )
             }
           />
         </Routes>

@@ -10,8 +10,8 @@
   flex-grow: 1;
 }
 
-/* =============================== MOBILE (≤480px) =============================== */
-@media (max-width: 480px) {
+/* =============================== MOBILE (≤626px) =============================== */
+@media (max-width: 626px) {
   .main-content {
     padding: 0 16px; /* Adjust padding for mobile */
   }

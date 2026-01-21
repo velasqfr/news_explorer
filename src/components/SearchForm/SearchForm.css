@@ -10,7 +10,7 @@
 }
 
 .search__title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-weight: 400;
   font-size: 60px;
   line-height: 64px;
@@ -22,14 +22,13 @@
 }
 
 .search__subtitle {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0px;
   color: #ffffff;
   text-align: center;
-  font-size: 18px;
 }
 
 .search__form {
@@ -73,7 +72,7 @@
 }
 
 .search__error {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   color: #ff0000;
   border: 5px solid #ffffff;
   border-radius: 8px;

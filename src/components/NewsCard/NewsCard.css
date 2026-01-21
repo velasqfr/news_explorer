@@ -62,7 +62,7 @@
 }
 
 .news__card-title {
-  font-family: "Roboto Slab", Arial, serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 18px;
   font-weight: 400;
   color: #1a1b22;
@@ -70,7 +70,7 @@
 }
 
 .news__card-description {
-  font-family: "Roboto Slab", Arial, serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 16px;
   color: #1a1b22;
   margin-bottom: 16px;
@@ -98,7 +98,7 @@
 
 .news__card-msg {
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,12 +144,12 @@
   }
 
   .news__card-date {
-    font-family: "Roboto Slab", Arial, serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 16px;
   }
 
   .news__card-title {
-    font-family: "Roboto Slab", Arial, serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 15px;
     font-weight: 500;
     line-height: 24px;
@@ -157,7 +157,7 @@
   }
 
   .news__card-description {
-    font-family: "Roboto Slab", Arial, serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;

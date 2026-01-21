@@ -1,5 +1,5 @@
 .news__card-list-title {
-  font-family: "Roboto Slab", Arial, serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -41,7 +41,7 @@
   color: #1a1b22;
   font-weight: 500;
   font-size: 18px;
-  font-family: "Roboto Slab", Arial, serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   border-radius: 80px;
   border: 1px solid #f5f6f7;
   cursor: pointer;

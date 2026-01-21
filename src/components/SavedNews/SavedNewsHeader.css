@@ -28,7 +28,7 @@
 }
 
 .saved-news__header .header__nav a {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-weight: 500;
   font-size: 18px;
   color: #1a1b22;
@@ -57,7 +57,7 @@
   width: 112px;
   height: 48px;
   margin-left: 64px;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -92,7 +92,7 @@
 /* ============================== TABLET (≤780px) ================================ */
 @media (max-width: 768px) {
   .saved-news__header .header__logo {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 18px;
   }
 

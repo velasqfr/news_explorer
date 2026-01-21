@@ -14,7 +14,7 @@
 
 /* Main Headline */
 .saved-news__title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   margin-bottom: 30px;
   font-size: 40px;
   color: #1a1b22;
@@ -24,7 +24,7 @@
 
 /* Subtitile for *Saved articles* */
 .saved-news__subtitle {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   color: #1a1b2280;
   font-size: 18px;
   margin-bottom: 28px;
@@ -33,14 +33,14 @@
 
 /* Keywords Line */
 .saved-news__keywords {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 18px;
   font-weight: 400;
   color: #1a1b22;
 }
 
 .saved-news__keywords-highlight {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-weight: 700;
   font-size: 18px;
 }
@@ -53,7 +53,7 @@
   background: #ffffff;
   border-radius: 10px;
   padding: 6px 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #1a1b22;
@@ -91,7 +91,7 @@
 .saved-news__card-msg {
   position: absolute;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,7 +116,7 @@
 
 /* Card Date */
 .saved-news__card-date {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   font-size: 18px;
   color: #b6bcbf;
   font-weight: 400;
@@ -127,7 +127,7 @@
 
 /* Card Title */
 .saved-news__card-title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 26px;
   margin-bottom: 16px;
   color: #1a1b22;
@@ -137,7 +137,7 @@
 
 /* Card Description */
 .saved-news__card-description {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -147,7 +147,7 @@
 
 /* Card Source */
 .saved-news__card-source {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: #b6bcbf;
@@ -213,7 +213,7 @@
   }
 
   .saved-news__subtitle {
-    font-family: "Roboto Slab", serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 14px;
     margin-bottom: 16px;
     color: #1a1b2280;
@@ -296,7 +296,7 @@
   }
 
   .saved-news__subtitle {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: #1a1b2280;
@@ -304,21 +304,21 @@
   }
 
   .saved-news__title {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 24px; /*30*/
     font-weight: 400;
     line-height: 1.2;
   }
 
   .saved-news__keywords {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 18px;
     font-weight: 400;
     color: #1a1b22;
   }
 
   .saved-news__keyword-badge {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 14px;
     font-weight: 700;
     top: 20px;
@@ -326,13 +326,13 @@
   }
 
   .saved-news__keywords-highlight {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-weight: 700;
     font-size: 18px;
   }
 
   .saved-news__header .header__logo {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;
     font-size: 16px;
     font-weight: 700;
   }
@@ -374,7 +374,7 @@
   }
 
   .saved-news__card-title {
-    font-family: "Roboto Slab", sans-serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 22px;
     line-height: 24px;
     font-weight: 400;
@@ -383,14 +383,14 @@
   }
 
   .saved-news__card-description {
-    font-family: "Roboto Slab", serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 14px;
     color: #1a1b22;
     margin-bottom: 16px;
   }
 
   .saved-news__card-source {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 12px;
     color: #b6bcbf;
     margin-top: 8px;

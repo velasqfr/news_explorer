@@ -116,7 +116,7 @@
 
 /* Card Date */
 .saved-news__card-date {
-  font-family: "Roboto", "Arial", sans-serif;
+  font-family: "Source Sans Pro", Arial, sans-serif;
   font-size: 18px;
   color: #b6bcbf;
   font-weight: 400;
@@ -407,7 +407,7 @@
   }
 
   .saved-news__card-date {
-    font-family: "Roboto", sans-serif;
+    font-family: "Source Sans Pro", Arial, sans-serif;
     font-size: 14px;
     color: #b6bcbf;
     font-weight: 400;

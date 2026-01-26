@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
+import { getRegisteredUsers, setUser } from "../../utils/localStorage";
 
 function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
   const [email, setEmail] = useState("");
@@ -38,39 +39,65 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Clear previous errors
     setEmailError("");
     setPasswordError("");
 
-    let hasError = false;
-
-    if (!email) {
-      setEmailError("Invalid email address");
-      hasError = true;
-    } else if (email.length < 8 || email.length > 25) {
-      setEmailError("Email must be 8-25 characters long");
-      hasError = true;
-    }
-
-    if (!password) {
-      setPasswordError("Invalid password");
-      hasError = true;
-    } else if (password.length < 4 || password.length > 30) {
-      setPasswordError("Password must be 4-30 characters long");
-      hasError = true;
-    }
-
-    if (hasError) return;
-
-    // If no error, proceed to the login function (onLogin)
     try {
-      const success = await onLogin({ email, password });
-      if (!success) {
-        setEmailError("Invalid email address or password");
-        setPasswordError("Invalid email address or password");
+      const users = getRegisteredUsers();
+      const user = users[email];
+
+      let hasError = false;
+
+      // 1.) Required fields
+      if (!email) {
+        setEmailError("Email is required");
+        hasError = true;
       }
+
+      if (!password) {
+        setPasswordError("Password is required");
+        hasError = true;
+      }
+
+      // 2️.) Length / format validation
+      if (email && (email.length < 8 || email.length > 25)) {
+        setEmailError("Email must be 8-25 characters long");
+        hasError = true;
+      }
+
+      if (password && (password.length < 4 || password.length > 30)) {
+        setPasswordError("Password must be 4-30 characters long");
+        hasError = true;
+      }
+
+      // Stop early if required/length errors exist
+      if (hasError) return;
+
+      // 3.) Semantic login validation
+      if (!user) {
+        setEmailError("Invalid email address"); // email not registered
+        setPasswordError(""); // clear password error
+        return;
+      }
+
+      if (user.password !== password) {
+        setPasswordError("Invalid password"); // password mismatch
+        setEmailError(""); // clear email error
+        return;
+      }
+
+      // 4.) Successful login
+      const success = onLogin({ email, password });
+      if (!success) return;
+
+      onClose();
     } catch (err) {
+      // Unexpected errors
       setEmailError("Something went wrong. Please try again");
       setPasswordError("Something went wrong. Please try again");
+      console.error(err);
     }
   };
 

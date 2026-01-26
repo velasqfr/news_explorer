@@ -10,7 +10,6 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [emailUnavailableError, setEmailUnavailableError] = useState("");
-  const [noInfoError, setNoInfoError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
@@ -24,7 +23,6 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       // Reset Errors
       setError("");
       setEmailError("");
-      setNoInfoError("");
       setEmailUnavailableError("");
       setPasswordError("");
       setUsernameError("");
@@ -56,40 +54,39 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     // Reset Errors
     setError("");
     setEmailError("");
-    setNoInfoError("");
     setEmailUnavailableError("");
     setPasswordError("");
     setUsernameError("");
 
-    // Checks if all fields are empty
-    if (!email && !password && !username) {
-      setNoInfoError("Please enter your information");
-      return;
-    }
-
     let hasError = false;
 
-    // Checks individual fields for missing value
+    // 1.) Required Fields - Checks individual fields for missing value
     if (!email) {
       setEmailError("Email is required");
-      hasError = true;
-    } else if (email.length < 8 || email.length > 25) {
-      setEmailError("Email must be 8-25 characters long");
       hasError = true;
     }
 
     if (!password) {
       setPasswordError("Password is required");
       hasError = true;
-    } else if (password.length < 4 || password.length > 30) {
-      setPasswordError("Password must be 4-30 characters long");
-      hasError = true;
     }
 
     if (!username) {
       setUsernameError("Username is required");
       hasError = true;
-    } else if (username.length < 2 || username.length > 15) {
+    }
+    // 2.) Length Validation
+    if (email && (email.length < 8 || email.length > 25)) {
+      setEmailError("Email must be 8-25 characters long");
+      hasError = true;
+    }
+
+    if (password && (password.length < 4 || password.length > 30)) {
+      setPasswordError("Password must be 4-30 characters long");
+      hasError = true;
+    }
+
+    if (username && (username.length < 2 || username.length > 15)) {
       setUsernameError("Username must be 2-15 characters long");
       hasError = true;
     }
@@ -97,13 +94,15 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
     // Stop if validation failed
     if (hasError) return;
 
+    // 3.) Semantaic Registration Validation
     try {
       const result = await onRegister?.({ email, password, username });
 
       if (result.success) {
         setIsRegistrationSuccess(true); // shows success component
       } else {
-        setEmailUnavailableError(result.message);
+        // Email already exists
+        setEmailUnavailableError(result.message || "Email already exists");
       }
     } catch (err) {
       setError("Something went wrong. Please try again");
@@ -205,10 +204,6 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
           <p className="register__error-unavailable-email">
             {emailUnavailableError}
           </p>
-        )}
-
-        {noInfoError && (
-          <p className="register__info-error-email">{noInfoError}</p>
         )}
 
         <button type="submit" className="modal__submit">

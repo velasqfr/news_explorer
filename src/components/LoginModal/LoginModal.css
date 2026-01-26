@@ -15,6 +15,7 @@
   margin-bottom: 24px;
   outline: none;
   background: transparent;
+  transition: border-color 0.2s;
 }
 
 .modal__input:focus {
@@ -39,6 +40,7 @@
   font-family: "Inter", "Helvetica", Arial, sans-serif;
   transition: opacity 0.2s ease-in-out;
 }
+
 .modal__submit:hover {
   opacity: 0.9;
   background: #2f71e5;
@@ -47,6 +49,7 @@
 .modal__submit:disabled {
   background: #e0e0e0;
   color: #b0b0b0;
+  cursor: not-allowed;
 }
 
 .modal__switch {
@@ -68,7 +71,8 @@
   text-decoration: underline;
 }
 
-.login__error-email {
+.login__error-email,
+.login__error-password {
   font-family: "Inter", "Helvetica", Arial, sans-serif;
   font-size: 12px;
   color: #ff0000;
@@ -76,10 +80,26 @@
   margin-top: -20px;
 }
 
-.login__error-password {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
-  font-size: 12px;
-  color: #ff0000;
-  font-weight: 400;
-  margin-top: -20px;
+/* ============================== MOBILE RESPONSIVE ============================== */
+@media (max-width: 480px) {
+  .modal__label {
+    font-size: 11px;
+  }
+
+  .modal__input {
+    font-size: 13px;
+  }
+
+  .modal__submit {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .modal__switch {
+    font-size: 13px;
+  }
+
+  .modal__sign-up {
+    font-size: 13px;
+  }
 }

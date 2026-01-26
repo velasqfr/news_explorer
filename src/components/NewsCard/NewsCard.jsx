@@ -48,15 +48,16 @@ const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
         <h3 className="news__card-title">{title}</h3>
 
         <p className="news__card-description">{description}</p>
-        <p className="news__card-source">{source?.name || "Unknown Source"}</p>
-        <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className="news__card-link"
-        >
-          Read more
-        </a>
+        <p className="news__card-source">
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="news__card-link"
+          >
+            {source?.name || "Unknown Source"}
+          </a>
+        </p>
       </div>
     </article>
   );

@@ -117,19 +117,15 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
                 )}
                 {article.source?.name && (
                   <p className="saved-news__card-source">
-                    {""}
-                    {article.source.name}
+                    <a
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="saved-news__card-link"
+                    >
+                      {article.source.name}
+                    </a>
                   </p>
-                )}
-                {article.url && (
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="saved-news__card-link"
-                  >
-                    Read More
-                  </a>
                 )}
               </div>
             </div>

@@ -1,3 +1,4 @@
+/* ============================== MOBILE (≤629px) ============================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -11,7 +12,87 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1; /* Behind content */
+  z-index: 1;
+}
+
+.modal__content {
+  position: relative;
+  width: calc(100% - 32px);
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.modal__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: -50px;
+  right: -25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.modal__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+
+.modal__switch {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.modal__switch button {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  cursor: pointer;
+}
+
+/* ============================== TABLET & DESKTOP (≥630px) ============================== */
+@media (min-width: 630px) {
+  .modal__content {
+    width: 430px;
+    padding: 36px;
+  }
+
+  .modal__form {
+    width: 358px;
+    margin: 0 auto;
+  }
+
+  .modal__close-btn {
+    top: -45px;
+    right: -50px;
+  }
+}
+
+/* .modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Behind content 
 }
 
 .modal__form {
@@ -32,7 +113,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 12px rgba(214, 92, 92, 0.1);
-  z-index: 2; /*On top*/
+  z-index: 2; /*On top
 }
 
 .modal__close-btn {
@@ -85,7 +166,7 @@
   border-radius: 100px;
   cursor: pointer;
   margin-top: 20px;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: Inter;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -106,21 +187,21 @@
   cursor: pointer;
 }
 
-/* ======================= Mobile View (<= 480px) ========================= */
+/* ======================= Mobile View (<= 480px) ========================= 
 @media (max-width: 480px) {
   .modal__content {
     width: 100%;
     max-width: 480px;
     padding: 10px;
     margin-top: 60px;
-    height: calc(100vh - 35px); /* Fill the screen but leave space at the top */
+    height: calc(100vh - 35px); /* Fill the screen but leave space at the top 
   }
 
   .modal__form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Adds space between form elements */
+    gap: 20px; /* Adds space between form elements 
   }
 
   .modal__close-btn {
@@ -134,3 +215,4 @@
     z-index: 3;
   }
 }
+*/

@@ -50,7 +50,7 @@
   margin: 0;
 }
 
-/* ============== MEDIA QUERIES ============== */
+/* ============================== TABLET (630px – 1319px) ============================== */
 @media (max-width: 1319px) {
   .avatar__photo {
     width: 232px;
@@ -61,9 +61,8 @@
     gap: 32px;
   }
 }
-/* ============== MEDIA QUERIES ============== */
 
-/* Table and below (<= 626px) */
+/* ============================== MOBILE (<= 626px) ============================== */
 
 @media (max-width: 626px) {
   .about__content {

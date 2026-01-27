@@ -10,7 +10,6 @@
   background-color: #f5f6f7;
   margin-top: 0;
   position: relative;
-  /*left: 5px; */
 }
 
 .news__card-list-section {
@@ -89,6 +88,11 @@
     padding: 0 0 0 0;
   }
 
+  .news__card-list-title {
+    font-size: 24px;
+    padding-left: 110px;
+  }
+
   .news__card-list__show-more-btn {
     margin-top: 60px;
   }
@@ -103,10 +107,6 @@
 
   .news__card-footer {
     padding-bottom: 40px;
-  }
-
-  .news__card-list-title {
-    font-size: 24px;
   }
 }
 

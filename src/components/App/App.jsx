@@ -67,7 +67,10 @@ function App() {
     setIsRegisterOpen(false);
   };
 
-  const handleRegisterOpen = () => setIsRegisterOpen(true);
+  const handleRegisterOpen = () => {
+    setIsLoginOpen(false);
+    setIsRegisterOpen(true);
+  };
 
   const handleLogin = ({ email, password }) => {
     const registeredUsers = getRegisteredUsers(); // Get all registered users

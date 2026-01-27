@@ -187,8 +187,10 @@
 }
 
 .saved-news__card-link {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 16px;
   color: #b6bcbf;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .saved-news__card-link:hover {

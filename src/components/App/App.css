@@ -10,12 +10,6 @@
   flex-grow: 1;
 }
 
-/* Tablet (630px – 1319px) */
-@media (min-width: 630px) and (max-width: 1319px) {
-  .main-content {
-    padding: 0 24px;
-  }
-}
 /* =============================== MOBILE (≤629px) =============================== */
 @media (max-width: 629px) {
   .main-content {

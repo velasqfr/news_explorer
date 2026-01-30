@@ -52,7 +52,7 @@ function Header({
   }, [isMenuOpen]);
 
   return (
-    <header className={`header ${isLoggedIn ? "header__logged-in" : ""}`}>
+    <header className={`header ${isLoggedIn ? "header--logged-in" : ""}`}>
       <div
         className={`header__container ${isMenuOpen ? "header__container--open" : ""}`}
       >

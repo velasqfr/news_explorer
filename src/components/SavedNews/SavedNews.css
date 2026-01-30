@@ -108,7 +108,6 @@
 /* Card Image */
 .saved-news__card-img {
   width: 100%;
-  width: 400px;
   height: 272px;
   object-fit: cover;
   border-radius: 16px 16px 0 0; /* top corners only */

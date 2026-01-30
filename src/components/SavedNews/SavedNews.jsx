@@ -85,7 +85,7 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
                 <img
                   src={trash}
                   alt="trash icon"
-                  className="saved__news-trash-icon"
+                  className="saved-news__trash-icon"
                 />
               </button>
 

@@ -33,25 +33,25 @@ const NewsCardList = ({
   if (isLoading) return <Preloader />;
 
   return (
-    <section className="news__card-list-section">
-      {!noResults && <h2 className="news__card-list-title">Search results</h2>}
+    <section className="news-card-list">
+      {!noResults && <h2 className="news-card-list__title">Search results</h2>}
 
       {noResults ? (
-        <div className="news__card-list-no-result">
+        <div className="news-card-list__no-results">
           <img
             src={nothing}
             alt="no results"
-            className="news__card-list__no-results-icon"
+            className="news-card-list__no-results-icon"
           />
-          <h3 className="news__card-list__no-results-title"> Nothing Found</h3>
+          <h3 className="news-card-list__no-results-title"> Nothing Found</h3>
 
-          <p className="news__card-list__no-results-text">
+          <p className="news-card-list__no-results-text">
             Sorry, but nothing matched your search terms
           </p>
         </div>
       ) : (
         <>
-          <div className="news__card-list">
+          <div className="news-card-list__cards">
             {articlesToDisplay.map((article, index) => (
               <NewsCard
                 key={article.url || index} // index is the fallback
@@ -64,9 +64,9 @@ const NewsCardList = ({
           </div>
 
           {visibleArticles < articles.length && (
-            <div className="news__card-list-footer">
+            <div className="news-card-list__footer">
               <button
-                className="news__card-list__show-more-btn"
+                className="news-card-list__show-more"
                 onClick={handleShowMore}
               >
                 Show More

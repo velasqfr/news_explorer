@@ -172,10 +172,23 @@
     font-weight: 700;
     font-size: 16px;
   }
+  .news__card-footer {
+    padding-bottom: 40px;
+  }
+}
+
+/* ============================== TABLET — 3 COLUMNS (768px and up) ============================== */
+@media (min-width: 768px) {
+  .news__card {
+    width: 100%;
+  }
 }
 
 /* ============================== MOBILE (320px – 629px) ============================== */
 @media (max-width: 629px) {
+  .news__card {
+    max-width: 100%;
+  }
   .news__card-title {
     font-family: "Roboto Slab", "Times New Roman", serif;
     font-size: 22px;
@@ -183,8 +196,12 @@
     line-height: 24px;
   }
 
+  .news__card-content {
+    border-radius: 0 0 12px 12px;
+  }
+
   .news__card-description {
-    font-size: 16px;
+    font-size: 13px;
     font-family: "Roboto", "Arial", sans-serif;
     font-weight: 400;
     line-height: 22px;
@@ -192,5 +209,10 @@
 
   .news__card img {
     border-radius: 12px 12px 0 0;
+    height: 196px;
+  }
+
+  .news__card-footer {
+    padding-bottom: 40px;
   }
 }

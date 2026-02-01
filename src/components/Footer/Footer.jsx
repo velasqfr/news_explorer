@@ -25,6 +25,7 @@ function Footer() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
             >
               <img src={githubIcon} alt="GitHub" className="footer__icon" />
             </a>
@@ -32,6 +33,7 @@ function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
               <img src={linkedIcon} alt="LinkedIn" className="footer__icon" />
             </a>

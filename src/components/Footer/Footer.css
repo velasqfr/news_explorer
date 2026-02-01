@@ -77,6 +77,9 @@
 .footer__social-icons a:hover img {
   filter: brightness(3); /* darkens icon */
   transform: scale(1.7); /* subtle zoom */
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* ============== MEDIA QUERIES ============== */

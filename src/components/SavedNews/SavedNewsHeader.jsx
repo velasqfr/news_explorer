@@ -83,7 +83,7 @@ function SavedNewsHeader({ currentUser, onSignOutClick }) {
       {/* Drawer and overlay for mobile */}
       {isMenuOpen && (
         <>
-          <div className="savednews__drawer">
+          <div className="saved-news__drawer">
             <nav className="header__nav-drawer">
               <Link to="/" className="header__nav-home">
                 Home

@@ -148,7 +148,11 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
         )}
       </label>
 
-      <button type="submit" className="modal__submit">
+      <button
+        type="submit"
+        className="modal__submit"
+        disabled={emailError || passwordError || !email || !password}
+      >
         Sign In
       </button>
       <p className="modal__switch">

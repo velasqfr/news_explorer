@@ -145,7 +145,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
         isOpen={isOpen}
         onClose={onClose}
         onSubmit={handleSubmit}
-        className="register"
+        className="modal__form-register"
       >
         <label className="modal__label">
           Email
@@ -160,7 +160,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
             autoComplete="username"
             required
           />
-          {emailError && <p className="register__error-email">{emailError}</p>}
+          {emailError && <p className="modal__error-email">{emailError}</p>}
         </label>
 
         <label className="modal__label">
@@ -177,7 +177,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
             required
           />
           {passwordError && (
-            <p className="register__error-password">{passwordError}</p>
+            <p className="modal__error-password">{passwordError}</p>
           )}
         </label>
 
@@ -195,7 +195,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
             required
           />
           {usernameError && (
-            <p className="register__error-username">{usernameError}</p>
+            <p className="modal__error-username">{usernameError}</p>
           )}
         </label>
 

@@ -88,7 +88,7 @@
   flex-direction: column;
 }
 
-.saved-news__card-msg {
+.saved-news__card__msg {
   position: absolute;
   font-size: 12px;
   font-family: "Roboto", "Arial", sans-serif;
@@ -265,7 +265,7 @@
   }
 
   /* Delete tooltip */
-  .saved-news__card-msg {
+  .saved-news__card__msg {
     right: 64px;
     width: 160px;
     height: 36px;
@@ -415,7 +415,7 @@
     margin-bottom: 8px;
   }
 
-  .saved-news__card-msg {
+  .saved-news__card__msg {
     font-size: 10px;
     width: 140px;
     height: 30px;

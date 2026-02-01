@@ -30,7 +30,7 @@
   background: url("../../images/saveHover.svg") no-repeat center #ffffff;
 }
 
-.news__card-save-btn.active {
+.news__card-save-btn--active {
   background: url("../../images/marked_save.svg") no-repeat center #ffffff;
 }
 

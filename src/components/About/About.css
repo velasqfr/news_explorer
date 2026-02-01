@@ -23,7 +23,7 @@
   margin: 0 auto;
 }
 
-.avatar__photo {
+.about__avatar-photo {
   width: 464px;
   height: 464px;
   border-radius: 50%;
@@ -52,7 +52,7 @@
 
 /* ============================== TABLET (630px – 1319px) ============================== */
 @media (max-width: 1319px) {
-  .avatar__photo {
+  .about__avatar-photo {
     width: 232px;
     height: 232px;
   }
@@ -71,7 +71,7 @@
     gap: 24px;
   }
 
-  .avatar__photo {
+  .about__avatar-photo {
     width: 280px;
     height: 280px;
   }

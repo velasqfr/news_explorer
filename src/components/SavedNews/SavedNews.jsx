@@ -90,7 +90,7 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
               </button>
 
               {showRemovedMsg === article.url && (
-                <span className="saved-news__card-msg">Remove from saved</span>
+                <span className="saved-news__card__msg">Remove from saved</span>
               )}
 
               {article.keyword && (

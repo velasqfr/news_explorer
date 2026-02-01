@@ -75,9 +75,9 @@
   margin-bottom: 8px;
 }
 
-.register__error-email,
-.register__error-password,
-.register__error-username,
+.modal__error-email,
+.modal__error-password,
+.modal__error-username,
 .modal__error-register {
   font-family: "Inter", "Helvetica", Arial, sans-serif;
   font-size: 12px;

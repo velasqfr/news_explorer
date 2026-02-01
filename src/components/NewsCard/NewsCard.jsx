@@ -29,7 +29,7 @@ const NewsCard = ({ article, onSave, isLoggedIn, savedArticles }) => {
         }}
       />
       <button
-        className={`news__card-save-btn ${isSaved ? "active" : ""}`}
+        className={`news__card-save-btn ${isSaved ? "news__card-save-btn--active" : ""}`}
         aria-label={isSaved ? "Remove article" : "Save article"}
         onClick={handleSave}
       ></button>

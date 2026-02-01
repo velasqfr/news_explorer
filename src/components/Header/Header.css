@@ -56,7 +56,7 @@
   height: 3px;
   background-color: #ffffff;
   border-radius: 1px;
-  bottom: -900px; /* adjust to align with border-bottom line */
+  bottom: -40px; /* adjust to align with border-bottom line */
 }
 
 .header.header--logged-in .header__nav a:hover {

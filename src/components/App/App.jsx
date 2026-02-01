@@ -103,14 +103,6 @@ function App() {
     registeredUsers[email] = { email, username, password };
     setRegisteredUsers(registeredUsers); // save updated users list to localStorage
 
-    // Proceed wth login after registering
-    // **Do NOT log in automatically**
-    // const newUser = { email, username };
-    // setUserState(newUser);
-    // setUser(newUser);
-    // setIsLoggedIn(true);
-    // closeAllModals();
-
     return { success: true };
   };
 

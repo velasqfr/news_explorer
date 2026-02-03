@@ -1,6 +1,6 @@
 /* ====== Background that covers Header + Main ====== */
 .hero {
-  background-image: url("../../images/Header.svg");
+  background-image: url("../../images/Header.webp");
   background-size: cover;
   background-position: center;
   display: flex;

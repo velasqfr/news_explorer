@@ -72,6 +72,7 @@
 }
 .saved-news__header .header__sign-out:hover {
   transform: scale(1.1);
+  transform-origin: right;
 }
 
 .header .header__sign-out {
@@ -83,6 +84,7 @@
 
 .header .header__sign-out:hover {
   transform: scale(1.1);
+  transform-origin: right;
 }
 
 .header__hamburger {
@@ -117,7 +119,7 @@
 }
 .saved-news__header .header__nav a.active::after {
   position: absolute;
-  bottom: -20px;
+  bottom: -35px;
 }
 
 /* ============================== MOBILE (≤480px) ================================ */
@@ -258,7 +260,7 @@
     width: 112px;
     height: 48px;
     font-size: 14px;
-    margin-left: 0;
+    margin: 0 10px 0 0;
   }
 
   /* Ensure hamburger menu shows up properly */

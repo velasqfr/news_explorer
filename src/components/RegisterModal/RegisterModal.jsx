@@ -121,7 +121,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
       <ModalWithForm
         isOpen={true}
         onClose={() => setIsRegistrationSuccess(false)}
-        className="register-success"
+        className="modal__content--register-success"
       >
         <RegistrationSuccess
           onClose={() => setIsRegistrationSuccess(false)}
@@ -201,7 +201,7 @@ function RegisterModal({ isOpen, onClose, onSignInClick, onRegister }) {
 
         {error && <p className="modal__error-register"> {error}</p>}
         {emailUnavailableError && (
-          <p className="register__error-unavailable-email">
+          <p className="modal__error-unavailable-email">
             {emailUnavailableError}
           </p>
         )}

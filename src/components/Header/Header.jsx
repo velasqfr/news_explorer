@@ -103,6 +103,7 @@ function Header({
         {isMenuOpen && (
           <>
             <div className="header__drawer">
+              <h1 className="header__drawer-logo">NewsExplorer</h1>
               <nav className="header__nav-drawer">
                 {/* Home link */}
                 <Link
@@ -116,7 +117,7 @@ function Header({
                 {isLoggedIn && (
                   <Link
                     to="/saved-news"
-                    className={isSavedNewsPage ? "active" : ""}
+                    className={`header__nav-link--saved ${isSavedNewsPage ? "active" : ""}`}
                   >
                     Saved Articles
                   </Link>

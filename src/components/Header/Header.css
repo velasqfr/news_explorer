@@ -243,6 +243,11 @@
     z-index: 300;
   }
 
+  .header__close-icon {
+    position: absolute;
+    top: 5px;
+  }
+
   .header__drawer {
     display: none;
   }
@@ -287,23 +292,42 @@
   }
 
   .header__hamburger {
+    position: relative;
     display: block;
     background: transparent;
     border: none;
     margin-left: 16px;
     z-index: 300;
   }
-
   .header__drawer {
-    display: none;
+    display: block;
     position: absolute;
-    top: 56px;
+    top: 0;
     left: 0;
     width: 100%;
     background-color: #1a1b22;
     height: auto;
     padding: 20px 16px 32px;
     z-index: 200;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    border-radius: 0 0 12px 12px;
+  }
+  .header__close-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 16px;
+    text-decoration: underline;
+  }
+
+  .header__drawer-logo::after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 0.5px;
+    background-color: #ffffff;
   }
 
   .header__nav-drawer {
@@ -311,6 +335,25 @@
     flex-direction: column;
     gap: 20px;
     padding: 0 16px;
+  }
+  .header__drawer-logo {
+    font-family: "Roboto Slab", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    top: 10px;
+  }
+  .header__nav-link--home,
+  .header__nav-link--saved {
+    color: #ffffff;
+  }
+
+  .header__nav-link--home:hover,
+  .header__nav-link--saved:hover {
+    color: #646cff;
+    text-decoration: underline;
   }
 
   .header__drawer-signin-btn {
@@ -324,6 +367,10 @@
     margin-top: 20px;
     align-self: center;
   }
+  .header__drawer-signout-btn {
+    border: 1px solid #ffffff;
+    border-radius: 100px;
+  }
 
   /* ========================= Overlay Styling ========================= */
   .header__overlay {
@@ -334,8 +381,8 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
     z-index: 150; /* Positioned above the page content but below the drawer */
-    display: none; /* Hide by default */
-    opacity: 0;
+    display: block;
+    opacity: 1;
     transition: opacity 0.3s ease-in-out; /* Fade-in effect */
   }
 
@@ -343,7 +390,23 @@
     display: block;
     opacity: 1; /* Fade in */
   }
+  .header__container--open .header__close-icon {
+    display: block;
+  }
+
   .header__container--open .header__drawer {
     display: block;
+    animation: slideDown 0.3s ease forwards; /* new smooth drop animation */
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }

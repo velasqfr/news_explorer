@@ -129,7 +129,7 @@
   }
   .saved-news__header {
     position: relative;
-    z-index: 300;
+    z-index: 200;
   }
 
   .saved-news__header .header__hamburger {
@@ -140,6 +140,8 @@
     display: block;
     background-color: #b6bcbf;
     padding-bottom: 40px;
+
+    z-index: 400;
   }
 
   .saved-news__header .header__container {
@@ -186,7 +188,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent black */
-    z-index: 150; /* Positioned above the page content but below the drawer */
+    z-index: 400; /* Positioned above the page content but below the drawer */
     display: none; /* Hide by default */
     opacity: 0;
     transition: opacity 0.3s ease-in-out; /* Fade-in effect */
@@ -201,6 +203,7 @@
   }
   .saved-news__header .header__container--open {
     background-color: #b6bcbf;
+    z-index: 200;
   }
 }
 /* ====================== Menu Styles When Open (Mobile) ===================== */

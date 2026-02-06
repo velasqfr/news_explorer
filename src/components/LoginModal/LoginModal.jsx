@@ -121,7 +121,10 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           value={email}
           minLength={8}
           maxLength={25}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setEmailError(""); // clears Email error when typing
+          }}
           autoComplete="username"
           required
         />
@@ -137,7 +140,10 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
           className="modal__input"
           placeholder="Enter password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setPasswordError(""); // clears Password error when typing
+          }}
           minLength={4}
           maxLength={30}
           autoComplete="current-password"
@@ -151,7 +157,7 @@ function LoginModal({ isOpen, onClose, onSignUpClick, onLogin }) {
       <button
         type="submit"
         className="modal__submit"
-        disabled={emailError || passwordError || !email || !password}
+        disabled={!email || !password}
       >
         Sign In
       </button>

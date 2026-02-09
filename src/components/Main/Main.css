@@ -1,11 +1,49 @@
-/* ====== Background that covers Header + Main ====== */
+/* =============================== MOBILE (≤629px) =============================== */
+@media (max-width: 629px) {
+  .main-content {
+    width: 100%; /* Ensure it spans the full width of the screen */
+    padding: 0 0; /* Padding on the sides */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+
+  .header__container {
+    max-width: none; /* Remove max-width restriction */
+    width: 100%; /* Ensure full width */
+    padding: 16px; /* Adjust header padding */
+  }
+
+  .hero {
+    width: 100%; /* Ensure the hero section takes up full width */
+    background-size: cover; /* Ensure background image is scaled properly */
+    background-position: center center; /* Center the background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 576px; /* Adjust this if needed */
+  }
+}
+
+/* ===================== Hero Section (Background Image) ===================== */
 .hero {
   background-image: url("../../images/Header.webp");
-  background-size: cover;
-  background-position: center;
+  background-size: cover; /* Make sure the background image covers the entire section */
+  background-position: center center; /* Ensure the background image is centered */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 576px;
+  min-height: 576px; /* Adjust the height to ensure it's covering enough space */
+  width: 100%; /* Make sure it spans the full width */
+}
+
+/* ========================== Header Logo Styles =========================== */
+.header__logo {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 20px;
+  width: auto;
+  margin: 0;
+  color: #ffffff;
+  flex-shrink: 0;
 }

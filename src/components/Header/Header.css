@@ -129,7 +129,7 @@
   height: 3px;
   background-color: #ffffff; /* underline color */
   border-radius: 1px;
-  bottom: -24px;
+  bottom: -35px;
 }
 
 .header.header--logged-in .header__sign-out {

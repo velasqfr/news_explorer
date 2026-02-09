@@ -1,9 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SavedNews.css";
 import trash from "../../images/trash.svg";
 
 function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
   const [showRemovedMsg, setShowRemovedMsg] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 629);
+
+  // ---------------------------- TRUNCATION FUNCTION -------------------------------- //
+  const truncateText = (text, maxLines = 4, approxCharsPerLine = 30) => {
+    if (!text) return "";
+    const maxChars = maxLines * approxCharsPerLine;
+    if (text.length <= maxChars) return text;
+
+    // Truncate at the last space so we don't cut mid word
+    let truncated = text.slice(0, maxChars);
+    const lastSpace = truncated.lastIndexOf(" ");
+    if (lastSpace > 0) {
+      truncated = truncated.slice(0, lastSpace);
+    }
+    return truncated + "...";
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 629);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const articleCount = savedArticles.length;
 
@@ -109,10 +135,16 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
                     })}
                   </p>
                 )}
-                <h3 className="saved-news__card-title">{article.title}</h3>
+                <h3 className="saved-news__card-title">
+                  {isMobile
+                    ? article.title
+                    : truncateText(article.title, 2, 15)}
+                </h3>
                 {article.description && (
                   <p className="saved-news__card-description">
-                    {article.description}
+                    {isMobile
+                      ? article.description
+                      : truncateText(article.description, 4, 24)}
                   </p>
                 )}
                 {article.source?.name && (

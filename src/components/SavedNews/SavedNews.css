@@ -1,15 +1,17 @@
+/* ============================== BASE STYLES ================================ */
 .saved-news {
-  padding: 62px 104px;
-  background-color: #f5f6f7;
+  padding: 0 16px 16px;
+  background-color: #ffffff;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* saved-news info box */
 .saved-news__info {
   background-color: #ffffff;
-  margin: 0 -104px 40px;
-  padding: 40px 104px;
+  padding: 16px;
+  margin: 40px auto 32px;
+  max-width: 1280px;
+  box-sizing: border-box;
 }
 
 /* Main Headline */
@@ -28,7 +30,7 @@
   color: #1a1b2280;
   font-size: 18px;
   margin-bottom: 28px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 /* Keywords Line */
@@ -47,7 +49,14 @@
 
 /* Keyword badge */
 .saved-news__keyword-badge {
+  display: flex;
+  max-width: 87px;
+  width: 100%;
+  max-height: 40px;
+  height: 100%;
   position: absolute;
+  align-items: center;
+  justify-content: center;
   top: 16px;
   left: 16px;
   background: #ffffff;
@@ -72,17 +81,21 @@
 /* Grid wrapper below info */
 .saved-news__cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   background-color: #f5f6f7;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 /* Styling for each card */
 .saved-news__card {
   width: 100%;
   max-width: 400px;
+  justify-self: center;
   position: relative;
-  background: #f5f6f7;
+  background: #ffffff;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -97,12 +110,14 @@
   justify-content: center;
   top: 17px;
   right: 82px;
-  width: 182px;
+  max-width: 159px;
+  width: 100%;
+  max-height: 40px;
   font-weight: 500;
   height: 40px;
   background: #ffffff;
   color: #1a1b22;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 /* Card Image */
@@ -121,14 +136,14 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
 }
 
 /* Card Title */
 .saved-news__card-title {
   font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 26px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   color: #1a1b22;
   line-height: 30px;
   font-weight: 400;
@@ -197,102 +212,52 @@
   color: #646cff;
   text-decoration: underline;
 }
-/* ============================== TABLET (≤780px) ================================ */
-@media (max-width: 768px) {
-  .saved-news {
-    padding: 40px;
-    margin: 0;
-  }
 
-  /* Info section */
-  .saved-news__info {
-    margin: 0;
-    padding: 32px 16px;
-    background-color: #ffffff;
-    width: 100%;
-    box-sizing: border-box;
-  }
+/* ============================== TABLET/DESKTOP GRID ================================ */
 
-  .saved-news__subtitle {
-    font-family: "Roboto Slab", "Times New Roman", serif;
-    font-size: 14px;
-    margin-bottom: 16px;
-    color: #1a1b2280;
-  }
-
-  .saved-news__title {
-    font-size: 30px;
-    line-height: 34px;
-    max-width: 100%;
-    margin-top: 0;
-    margin-bottom: 16px;
-  }
-
-  .saved-news__keywords {
-    font-size: 14px;
-  }
-
-  /* Cards grid */
+@media (min-width: 768px) {
   .saved-news__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .saved-news__info {
+    padding: 40px;
+    max-width: 1280px;
+    margin: 20px auto 40px;
   }
 
-  /* Card image */
-  .saved-news__card-img {
-    height: 200px;
-  }
-
-  /* Card content */
-  .saved-news__card-content {
-    padding: 16px;
-  }
-
-  .saved-news__card-title {
-    font-size: 22px;
-    line-height: 26px;
-  }
-
-  .saved-news__card-description {
-    font-size: 16px;
-  }
-
-  /* Keyword badge */
-  .saved-news__keyword-badge {
-    font-size: 12px;
-    padding: 4px 10px;
-  }
-
-  /* Delete tooltip */
   .saved-news__card__msg {
-    right: 64px;
-    width: 160px;
-    height: 36px;
-    font-size: 12px;
+    position: absolute;
+    top: 70px;
+    left: 70px;
+  }
+
+  .saved-news__card-link {
+    max-width: 192px;
+    max-height: 20px;
+    font-size: 16px;
+    font-weight: 700;
   }
 }
 
-/* ============================== MOBILE (≤480px) ================================ */
+/* ============================== MOBILE (≤629px) ================================ */
 
-@media (max-width: 480px) {
+@media (max-width: 629px) {
   .saved-news {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 32px;
     width: 100%;
     margin: 0 auto;
     max-width: 100%;
     box-sizing: border-box;
+
+    padding: 12px 16px;
+    background-color: #ffffff;
+    margin-top: 20px;
   }
 
   .saved-news__info {
-    padding: 12px 16px;
-    margin: 0;
+    padding: 0;
     background-color: #ffffff;
-    max-width: 100%;
-    width: 100%;
     box-sizing: border-box;
   }
 
@@ -306,7 +271,7 @@
 
   .saved-news__title {
     font-family: "Roboto Slab", "Times New Roman", serif;
-    font-size: 24px; /*30*/
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.2;
   }
@@ -319,11 +284,16 @@
   }
 
   .saved-news__keyword-badge {
-    font-family: "Roboto", "Arial", sans-serif;
     font-size: 14px;
     font-weight: 700;
     top: 20px;
     left: 20px;
+  }
+
+  .saved-news__card__msg {
+    position: absolute;
+    top: -30px;
+    left: 185px;
   }
 
   .saved-news__keywords-highlight {
@@ -332,31 +302,12 @@
     font-size: 18px;
   }
 
-  .saved-news__header .header__logo {
-    font-family: "Roboto", "Arial", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-  }
-  .saved-news__header .header__sign-out {
-    display: none;
-  }
-
   .saved-news__card {
+    max-width: 400px;
     width: 100%; /* Ensure cards take up full width */
-    max-width: 100%; /* Prevent cards from exceeding the screen */
     margin: 0 auto; /* Center cards */
     box-sizing: border-box;
-    background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-  }
-
-  .saved-news__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 32px;
-    padding: 0;
   }
 
   .saved-news__card-img {
@@ -428,5 +379,21 @@
     color: #1a1b22;
     font-size: 16px;
     margin-top: 40px;
+  }
+}
+/* ==============================  (≤480px) ================================ */
+@media (max-width: 480px) {
+  .saved-news__info {
+    margin-top: 0; /* Remove margin-top to eliminate the gap */
+  }
+
+  .saved-news__subtitle {
+    margin-top: 0; /* Reduce margin-top to 0 */
+  }
+
+  .saved-news__card__msg {
+    position: absolute;
+    top: -4px;
+    left: 120px;
   }
 }

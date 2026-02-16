@@ -1,0 +1,128 @@
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #2f71e5;
+  margin-bottom: 13px;
+  position: relative;
+}
+
+.modal__input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0 6px;
+  font-size: 14px;
+  margin-bottom: 24px; /* updated for proper spacing with errors */
+  outline: none;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.modal__input:focus {
+  border-bottom: 1px solid #2f71e5;
+}
+
+.modal__input::placeholder {
+  color: #ccc;
+}
+
+.modal__submit {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  background: #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal__submit:hover {
+  opacity: 0.9;
+  background: #2f71e5;
+}
+
+.modal__submit:disabled {
+  background: #e0e0e0;
+  color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.modal__switch {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.modal__sign-in {
+  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  background: none;
+  border: none;
+  color: #2f71e5;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal__sign-in:hover {
+  text-decoration: underline;
+}
+
+.modal__error-email,
+.modal__error-password,
+.modal__error-username,
+.modal__error-register {
+  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+  margin-top: 0; /* removed negative margins */
+  height: 14px; /* keeps spacing consistent for empty errors */
+}
+
+.modal__error-unavailable-email {
+  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+  height: 14px;
+  text-align: center;
+}
+
+/* Registration success message */
+.registration__message {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* ============================== MOBILE RESPONSIVE (≤480px) ============================== */
+@media (max-width: 480px) {
+  .modal__label {
+    font-size: 11px;
+  }
+
+  .modal__input {
+    font-size: 13px;
+  }
+
+  .modal__submit {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .modal__switch {
+    font-size: 13px;
+  }
+
+  .modal__sign-in {
+    font-size: 13px;
+  }
+}

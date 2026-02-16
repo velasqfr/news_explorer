@@ -1,0 +1,399 @@
+/* ============================== BASE STYLES ================================ */
+.saved-news {
+  padding: 0 16px 16px;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.saved-news__info {
+  background-color: #ffffff;
+  padding: 16px;
+  margin: 40px auto 32px;
+  max-width: 1280px;
+  box-sizing: border-box;
+}
+
+/* Main Headline */
+.saved-news__title {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: #1a1b22;
+  max-width: 600px;
+  line-height: 1.2;
+}
+
+/* Subtitile for *Saved articles* */
+.saved-news__subtitle {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  color: #1a1b2280;
+  font-size: 18px;
+  margin-bottom: 28px;
+  margin-top: 60px;
+}
+
+/* Keywords Line */
+.saved-news__keywords {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #1a1b22;
+}
+
+.saved-news__keywords-highlight {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Keyword badge */
+.saved-news__keyword-badge {
+  display: flex;
+  max-width: 87px;
+  width: 100%;
+  max-height: 40px;
+  height: 100%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 16px;
+  left: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1b22;
+}
+
+.saved-news__card-content {
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 0 0 16px 16px; /* bottom corners only */
+}
+
+/* Grid wrapper below info */
+.saved-news__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  background-color: #f5f6f7;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Styling for each card */
+.saved-news__card {
+  width: 100%;
+  max-width: 400px;
+  justify-self: center;
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-news__card__msg {
+  position: absolute;
+  font-size: 12px;
+  font-family: "Roboto", "Arial", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 17px;
+  right: 82px;
+  max-width: 159px;
+  width: 100%;
+  max-height: 40px;
+  font-weight: 500;
+  height: 40px;
+  background: #ffffff;
+  color: #1a1b22;
+  border-radius: 10px;
+}
+
+/* Card Image */
+.saved-news__card-img {
+  width: 100%;
+  height: 272px;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0; /* top corners only */
+}
+
+/* Card Date */
+.saved-news__card-date {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 18px;
+  color: #b6bcbf;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  margin-bottom: 5px;
+}
+
+/* Card Title */
+.saved-news__card-title {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #1a1b22;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+/* Card Description */
+.saved-news__card-description {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: #1a1b22;
+}
+
+/* Card Source */
+.saved-news__card-source {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #b6bcbf;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+/* For Empty State */
+.saved-news__empty {
+  text-align: center;
+  color: #1a1b22;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+/* Delete button */
+.saved-news__delete-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+/* Trash Icon */
+.saved-news__delete-btn:hover .trash__icon {
+  content: url("../../images/trashHover.svg");
+}
+
+.saved-news__undo {
+  position: relative;
+  bottom: 500px;
+}
+
+.saved-news__card-link {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 16px;
+  color: #b6bcbf;
+  font-weight: 700;
+}
+
+.saved-news__card-link:hover {
+  cursor: pointer;
+  color: #646cff;
+  text-decoration: underline;
+}
+
+/* ============================== TABLET/DESKTOP GRID ================================ */
+
+@media (min-width: 768px) {
+  .saved-news__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .saved-news__info {
+    padding: 40px;
+    max-width: 1280px;
+    margin: 20px auto 40px;
+  }
+
+  .saved-news__card__msg {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+  }
+
+  .saved-news__card-link {
+    max-width: 192px;
+    max-height: 20px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+/* ============================== MOBILE (≤629px) ================================ */
+
+@media (max-width: 629px) {
+  .saved-news {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 16px;
+    background-color: #ffffff;
+    margin-top: 20px;
+  }
+
+  .saved-news__info {
+    padding: 0;
+    background-color: #ffffff;
+    box-sizing: border-box;
+  }
+
+  .saved-news__subtitle {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #1a1b2280;
+    margin-top: 16px;
+  }
+
+  .saved-news__title {
+    font-family: "Roboto Slab", "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .saved-news__keywords {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1b22;
+  }
+
+  .saved-news__keyword-badge {
+    font-size: 14px;
+    font-weight: 700;
+    top: 20px;
+    left: 20px;
+  }
+
+  .saved-news__card__msg {
+    position: absolute;
+    top: -30px;
+    left: 185px;
+  }
+
+  .saved-news__keywords-highlight {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .saved-news__card {
+    max-width: 400px;
+    width: 100%; /* Ensure cards take up full width */
+    margin: 0 auto; /* Center cards */
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .saved-news__card-img {
+    width: 100%; /* Ensure image fits within the card */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .saved-news__card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 0 0 16px 16px;
+    width: 100%;
+  }
+
+  .saved-news__card-title {
+    font-family: "Roboto Slab", "Times New Roman", serif;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: #1a1b22;
+  }
+
+  .saved-news__card-description {
+    font-family: "Roboto Slab", "Times New Roman", serif;
+    font-size: 14px;
+    color: #1a1b22;
+    margin-bottom: 16px;
+  }
+
+  .saved-news__card-source {
+    font-family: "Roboto Slab", "Times New Roman", serif;
+    font-size: 12px;
+    color: #b6bcbf;
+    margin-top: 8px;
+  }
+  .saved-news__delete-btn {
+    width: 55px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+
+  .saved-news__card-date {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 14px;
+    color: #b6bcbf;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .saved-news__card__msg {
+    font-size: 10px;
+    width: 140px;
+    height: 30px;
+    margin-top: 50px;
+    margin-right: -50px;
+  }
+
+  .saved-news__empty {
+    text-align: center;
+    color: #1a1b22;
+    font-size: 16px;
+    margin-top: 40px;
+  }
+}
+/* ==============================  (≤480px) ================================ */
+@media (max-width: 480px) {
+  .saved-news__info {
+    margin-top: 0; /* Remove margin-top to eliminate the gap */
+  }
+
+  .saved-news__subtitle {
+    margin-top: 0; /* Reduce margin-top to 0 */
+  }
+
+  .saved-news__card__msg {
+    position: absolute;
+    top: -4px;
+    left: 120px;
+  }
+}

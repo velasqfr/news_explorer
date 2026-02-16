@@ -1,0 +1,291 @@
+.saved-news__header {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.saved-news__header .header__logo {
+  color: #1a1b22;
+}
+
+.saved-news__header .header__container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0 26px 104px;
+}
+
+.saved-news__header .header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.saved-news__header .header__nav a:hover {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: underline;
+}
+
+.saved-news__header .header__nav a {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #1a1b22;
+  text-decoration: none;
+  position: relative;
+  padding: 4px;
+}
+
+.saved-news__header .header__nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  background-color: #1a1b22; /* color of the underline */
+  bottom: -35px; /* place it right on the line */
+}
+
+.saved-news__header .header__nav a:first-child {
+  margin-right: 64px;
+}
+
+.saved-news__header .header__sign-out {
+  width: 112px;
+  height: 48px;
+  margin-left: 64px;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border: 1px solid #1a1b22;
+  border-radius: 100px;
+  background: transparent;
+  color: #1a1b22;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.saved-news__header .header__sign-out:hover {
+  transform: scale(1.1);
+  transform-origin: right;
+}
+
+.header .header__sign-out {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header .header__sign-out:hover {
+  transform: scale(1.1);
+  transform-origin: right;
+}
+
+.header__hamburger {
+  display: none; /* Hidden by default */
+}
+
+/* ============================== TABLET (≤780px) ================================ */
+@media (max-width: 768px) {
+  .saved-news__header .header__logo {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 18px;
+  }
+
+  .saved-news__header .header__hamburger {
+    display: none;
+  }
+
+  .saved-news__header .header__container {
+    padding: 20px 16px; /* Adjust padding for tablet */
+  }
+
+  .saved-news__header .header__menu {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .saved-news__header .header__nav {
+    gap: 10px;
+    color: #2f71e5;
+  }
+}
+.saved-news__header .header__nav a.active::after {
+  position: absolute;
+  bottom: -30px;
+}
+
+/* ============================== MOBILE (≤480px) ================================ */
+@media (max-width: 480px) {
+  .header__hamburger {
+    display: block;
+  }
+  .saved-news__header {
+    position: relative;
+    z-index: 200;
+  }
+
+  .saved-news__header .header__hamburger {
+    display: block;
+  }
+
+  .saved-news__drawer {
+    display: block;
+    background-color: #b6bcbf;
+    padding-bottom: 40px;
+    z-index: 400;
+  }
+
+  .saved-news__header .header__container {
+    padding: 16px 16px 8px;
+  }
+
+  .saved-news__header .header__logo {
+    font-size: 18px;
+  }
+
+  .saved-news__header .header__nav {
+    display: none;
+  }
+
+  .saved-news__drawer .header__nav-home {
+    color: #1a1b22;
+    cursor: pointer;
+  }
+
+  .saved-news__drawer .header__nav-home:hover {
+    color: #646cff;
+    text-decoration: underline;
+  }
+
+  .saved-news__header .header__sign-out {
+    font-size: 14px;
+  }
+  .saved-news__header .drawer__signout-btn {
+    width: 100%;
+    max-width: 176px;
+    height: 48px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    margin-top: 20px;
+    align-self: flex-start;
+  }
+  /* ========================= Overlay Styling ========================= */
+  .saved-news__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent black */
+    z-index: 400; /* Positioned above the page content but below the drawer */
+    display: none; /* Hide by default */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Fade-in effect */
+  }
+
+  .saved-news__header .header__container--open .header__overlay {
+    display: block;
+    opacity: 1; /* Fade in */
+  }
+  .saved-news__header .header__container--open .header__drawer {
+    display: block;
+  }
+  .saved-news__header .header__container--open {
+    background-color: #b6bcbf;
+    z-index: 200;
+  }
+}
+/* ====================== Menu Styles When Open (Mobile) ===================== */
+.saved-news__header .header__menu.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saved-news__header .header__menu.open .header__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.saved-news__drawer .header__nav-home {
+  font-size: 16px;
+  color: #1a1b22;
+}
+
+@media (min-width: 481px) and (max-width: 637px) {
+  /* Ensure header container doesn't overflow */
+  .saved-news__header .header__container {
+    padding: 10px 0px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  /* Adjust logo size for medium screens */
+  .saved-news__header .header__logo {
+    font-size: 18px;
+    max-width: 100%;
+    position: absolute;
+    left: 20px;
+  }
+
+  /* Adjust the Home link specifically */
+  .saved-news__header .header__nav .header__link:first-child {
+    margin-right: 10px; /* Push the Home link to the right */
+  }
+
+  /* Adjust navigation for smaller screens */
+  .saved-news__header .header__nav {
+    display: flex;
+    gap: 12px; /* Add space between navigation items */
+    flex-wrap: wrap; /* Allow items to wrap */
+  }
+
+  /* Adjust navigation link styles */
+  .saved-news__header .header__nav a {
+    font-size: 16px;
+    padding: 4px;
+  }
+
+  .saved-news__header .header__nav a.active::after {
+    position: absolute;
+    bottom: -20px;
+  }
+
+  /* Ensure the sign-out button fits well */
+  .saved-news__header .header__sign-out {
+    width: 112px;
+    height: 48px;
+    font-size: 14px;
+    margin: 0 10px 0 0;
+  }
+
+  /* Ensure hamburger menu shows up properly */
+  .saved-news__header .header__hamburger {
+    display: none;
+  }
+
+  /* Handle overflow issues */
+  .saved-news__header .header__menu {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+}
+/* ==============================  (≤480px) ================================ */
+@media (max-width: 480px) {
+  .saved-news__header .header__nav,
+  .saved-news__header .header__sign-out {
+    display: none;
+  }
+}

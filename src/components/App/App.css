@@ -1,0 +1,22 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+/* =============================== MOBILE (≤629px) =============================== */
+@media (max-width: 629px) {
+  .main-content {
+    padding: 0 16px; /* Adjust padding for mobile */
+  }
+
+  .saved-news__empty {
+    font-size: 18px; /* Adjust empty state text size for mobile */
+  }
+}

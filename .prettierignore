@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Vendor files (like your normalize.css)
+vendor/
+
+# Package files
+package-lock.json
+yarn.lock

@@ -28,8 +28,10 @@
   height: 464px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 20%;
   opacity: 1;
   border: 2px solid #000000;
+  transform: scale(0.84); /* zoom out */
 }
 
 .about__section {

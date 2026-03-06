@@ -1,12 +1,13 @@
 import "./About.css";
-import avatar from "../../images/Avatar.jpg";
+// import avatar from "../../images/Avatar.jpg"; avatar icon
+import headshot from "../../images/Headshot.jpg";
 
 function About() {
   return (
     <div className="about">
       <div className="about__content">
         <img
-          src={avatar}
+          src={headshot}
           alt="Franklin Velasquez"
           className="about__avatar-photo"
         />
